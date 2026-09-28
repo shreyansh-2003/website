@@ -250,6 +250,23 @@ h3 {
   margin: 2rem 0 0.75rem;
 }
 
+.section-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.25rem 1rem;
+  margin-bottom: 1rem;
+}
+
+.section-head h2 {
+  margin: 0;
+}
+
+.section-head a {
+  font-size: 0.95rem;
+}
+
 .note {
   color: var(--muted);
   font-size: 0.9rem;
