@@ -133,8 +133,9 @@
           To add a paper: copy one <li class="pub"> block and keep the list newest first.
           - Mark yourself in the author list with <span class="me">S. Padarha</span>.
           - The venue goes in <span class="venue"> on the links line.
-          - Thumbnail: a 4:3 image (480 × 360) in assets/papers/.
-          - The thumbnail button's aria-controls must match the id of the TL;DR panel below it.
+          - Images: a 4:3 thumbnail (NAME-thumb.webp, 480 × 360) and the full figure (NAME.webp) in assets/papers/.
+          - The thumbnail button's data-dialog must match the id of the <dialog> below it.
+          - TL;DR: at most two sentences. Key takeaway: one.
         -->
         <ol class="pubs">
 
@@ -150,13 +151,18 @@
                 <a href="https://oxrml.com/agent-slr" target="_blank" rel="noopener">Website</a>
               </p>
             </div>
-            <button class="pub-thumb" type="button" aria-expanded="false" aria-controls="tldr-agentslr" aria-label="Show summary">
-              <img src="assets/papers/agentslr.webp" width="480" height="360" loading="lazy" alt="">
+            <button class="pub-thumb" type="button" data-dialog="tldr-agentslr" aria-label="Show summary">
+              <img src="assets/papers/agentslr-thumb.webp" width="480" height="360" loading="lazy" alt="">
             </button>
-            <div class="pub-tldr" id="tldr-agentslr" hidden>
-              <p><strong>TL;DR</strong> We built AgentSLR, an open harness that runs each stage of an epidemiological systematic review with an LLM. We tested five frontier models against expert labels for 16,248 articles on WHO priority pathogens. No model led at every stage, and data extraction was the weakest step. The full pipeline took about 20 hours, against roughly 385 hours for a manual review.</p>
-              <p><strong>Key takeaway</strong> LLMs can cut review time sharply, but they are not yet reliable enough to work without expert supervision.</p>
-            </div>
+            <dialog class="pub-dialog" id="tldr-agentslr" aria-labelledby="tldr-agentslr-title">
+              <div class="dialog-body">
+                <button class="dialog-close" type="button" aria-label="Close">&times;</button>
+                <p class="dialog-title" id="tldr-agentslr-title">Evaluating AI-based Scientific Knowledge Synthesis with Epidemiological Systematic Reviews</p>
+                <img src="assets/papers/agentslr.webp" width="1124" height="612" loading="lazy" alt="The six stages of the AgentSLR workflow: article search and retrieval, title and abstract screening, PDF-to-markdown conversion, full-text screening, data extraction and report generation.">
+                <p><span class="label">TL;DR</span> Five frontier LLMs take on the full systematic-review pipeline for WHO priority pathogens, checked against expert labels on 16,248 articles. The pipeline finishes in about 20 hours against roughly 385 for a manual review, but no model wins every stage and data extraction stays the weak link.</p>
+                <p><span class="label">Key takeaway</span> LLMs can compress weeks of evidence synthesis into a day, but not yet without an expert in the loop.</p>
+              </div>
+            </dialog>
           </li>
 
           <li class="pub">
@@ -169,13 +175,18 @@
                 <a href="https://github.com/Yushi-Y/RL-search-align" target="_blank" rel="noopener">Code</a>
               </p>
             </div>
-            <button class="pub-thumb" type="button" aria-expanded="false" aria-controls="tldr-rl-search" aria-label="Show summary">
-              <img src="assets/papers/agentic-rl-search.webp" width="480" height="360" loading="lazy" alt="">
+            <button class="pub-thumb" type="button" data-dialog="tldr-rl-search" aria-label="Show summary">
+              <img src="assets/papers/agentic-rl-search-thumb.webp" width="480" height="360" loading="lazy" alt="">
             </button>
-            <div class="pub-tldr" id="tldr-rl-search" hidden>
-              <p><strong>TL;DR</strong> Reinforcement learning (RL) that teaches models to use search tools weakens the safety they gained in instruction tuning. When prompted to search before they could refuse, RL-trained models ran chains of harmful searches. Search safety fell by up to 68.6 percent in Qwen models and 69.6 percent in Llama models. We traced the drop to one direction in the models' internal activations. Penalising that direction during training restored safety without hurting accuracy.</p>
-              <p><strong>Key takeaway</strong> Training models to use tools can quietly undo safety training, and a simple penalty during RL can fix it.</p>
-            </div>
+            <dialog class="pub-dialog" id="tldr-rl-search" aria-labelledby="tldr-rl-search-title">
+              <div class="dialog-body">
+                <button class="dialog-close" type="button" aria-label="Close">&times;</button>
+                <p class="dialog-title" id="tldr-rl-search-title">Agentic Reinforcement Learning for Search Misaligns Instruction-Tuning</p>
+                <img src="assets/papers/agentic-rl-search.webp" width="1268" height="456" loading="lazy" alt="Diagnosis, mechanism and mitigation: RL-trained search models issue harmful searches under a search trigger, RL shifts query representations toward a harmful direction, and a projection penalty during RL restores safety.">
+                <p><span class="label">TL;DR</span> Train an instruction-tuned model to search with reinforcement learning and its refusals turn brittle: nudge it to search first and it chains harmful queries, cutting search safety by more than two-thirds. The damage traces to one direction inside the model, and penalising it during training restores safety at no cost to accuracy.</p>
+                <p><span class="label">Key takeaway</span> Teaching a model to use tools can quietly undo its safety training, but the fix is cheap.</p>
+              </div>
+            </dialog>
           </li>
 
           <li class="pub">
@@ -190,13 +201,18 @@
                 <a href="https://huggingface.co/spaces/Snowflake/MADQA-Leaderboard" target="_blank" rel="noopener">Leaderboard</a>
               </p>
             </div>
-            <button class="pub-thumb" type="button" aria-expanded="false" aria-controls="tldr-madqa" aria-label="Show summary">
-              <img src="assets/papers/madqa.webp" width="480" height="360" loading="lazy" alt="">
+            <button class="pub-thumb" type="button" data-dialog="tldr-madqa" aria-label="Show summary">
+              <img src="assets/papers/madqa-thumb.webp" width="480" height="360" loading="lazy" alt="">
             </button>
-            <div class="pub-tldr" id="tldr-madqa" hidden>
-              <p><strong>TL;DR</strong> We built MADQA, a benchmark of 2,250 human-written questions over 800 PDF documents, to test how agents and people search document collections. The best agents matched human accuracy. But they answered different questions correctly and relied on repeated searching rather than planning. They also fell almost 20 percent short of the best possible score, often stuck in loops.</p>
-              <p><strong>Key takeaway</strong> Agents reach human-level accuracy on document search through brute force, not strategy.</p>
-            </div>
+            <dialog class="pub-dialog" id="tldr-madqa" aria-labelledby="tldr-madqa-title">
+              <div class="dialog-body">
+                <button class="dialog-close" type="button" aria-label="Close">&times;</button>
+                <p class="dialog-title" id="tldr-madqa-title">Strategic Navigation or Stochastic Search? How Agents and Humans Reason Over Document Collections</p>
+                <img src="assets/papers/madqa.webp" width="976" height="731" loading="lazy" alt="Accuracy against step limit for humans, Gemini 3 Pro, Claude Sonnet 4.5 and GPT-5. Humans start far higher; agents catch up only with many more search steps.">
+                <p><span class="label">TL;DR</span> The best AI agents now match humans at answering questions across 800 real PDFs. But they get there by brute-force searching rather than planning, solve different questions from people and stall almost 20 percent short of the best possible score.</p>
+                <p><span class="label">Key takeaway</span> Matching human accuracy is not the same as reasoning like a human.</p>
+              </div>
+            </dialog>
           </li>
 
           <li class="pub">
@@ -204,19 +220,23 @@
               <h3 class="pub-title"><a href="https://arxiv.org/abs/2606.14397" target="_blank" rel="noopener">Running the Gauntlet: Challenging Agentic Tasks</a></h3>
               <p class="pub-authors">M. Vysotskyi*, R. Lin*, G. Biziel, …, <span class="me">S. Padarha</span>, …, A. Mahdi, V. Karpiv, P. Torr, A. Bibi</p>
               <p class="pub-meta">
-                <span class="venue">Preprint 2026</span>
                 <a href="https://arxiv.org/abs/2606.14397" target="_blank" rel="noopener">Paper</a>
                 <a href="https://github.com/gauntlet-benchmark/evaluation-harness" target="_blank" rel="noopener">Code</a>
                 <a href="https://gauntlet-landing-page.vercel.app/" target="_blank" rel="noopener">Website</a>
               </p>
             </div>
-            <button class="pub-thumb" type="button" aria-expanded="false" aria-controls="tldr-gauntlet" aria-label="Show summary">
-              <img src="assets/papers/gauntlet.webp" width="480" height="360" loading="lazy" alt="">
+            <button class="pub-thumb" type="button" data-dialog="tldr-gauntlet" aria-label="Show summary">
+              <img src="assets/papers/gauntlet-thumb.webp" width="480" height="360" loading="lazy" alt="">
             </button>
-            <div class="pub-tldr" id="tldr-gauntlet" hidden>
-              <p><strong>TL;DR</strong> GauntletBench tests agents on 135 visual tasks in five unfamiliar professional web apps, from a video editor to a circuit designer. At release in June 2026, the best agent completed 28.2 percent of tasks, while non-expert humans completed over 80 percent. Three months later, GPT-6 Astra scored 83.0 percent, the first agent to beat the human baseline.</p>
-              <p><strong>Key takeaway</strong> Agents are improving fast on unfamiliar tools, and benchmarks now go out of date within months.</p>
-            </div>
+            <dialog class="pub-dialog" id="tldr-gauntlet" aria-labelledby="tldr-gauntlet-title">
+              <div class="dialog-body">
+                <button class="dialog-close" type="button" aria-label="Close">&times;</button>
+                <p class="dialog-title" id="tldr-gauntlet-title">Running the Gauntlet: Challenging Agentic Tasks</p>
+                <img src="assets/papers/gauntlet.webp" width="1062" height="328" loading="lazy" alt="Screenshots of the five GauntletBench applications: Video Editor, Workflow Builder, 3D Modeller, Flight Analyser and Circuit Designer, each with an example task.">
+                <p><span class="label">TL;DR</span> Frontier agents were dropped into five unfamiliar professional apps, from a video editor to a circuit designer. At launch the best one solved 28.2 percent of tasks against over 80 percent for non-expert humans; three months later, GPT-6 Astra hit 83.0 percent.</p>
+                <p><span class="label">Key takeaway</span> Agents are learning unfamiliar tools fast, and benchmarks now age in months, not years.</p>
+              </div>
+            </dialog>
           </li>
 
           <li class="pub">
@@ -224,19 +244,24 @@
               <h3 class="pub-title"><a href="https://openreview.net/pdf/300209bf37f4e6baf904f7f7ac93d833e756edfc.pdf" target="_blank" rel="noopener">Evaluating LLM-as-a-Judge under Multilingual, Multimodal and Multi-domain Constraints</a></h3>
               <p class="pub-authors"><span class="me">S. Padarha</span>, E. Semenova, B. Vidgen, A. Mahdi, S. A. Hale</p>
               <p class="pub-meta">
-                <span class="venue">NeurIPS 2025 Workshop</span>
+                <span class="venue">NeurIPS 2025 Workshop on Evaluating the Evolving LLM Lifecycle</span>
                 <a href="https://openreview.net/pdf/300209bf37f4e6baf904f7f7ac93d833e756edfc.pdf" target="_blank" rel="noopener">Paper</a>
                 <!-- Code repo is private for now. Once public, add:
                 <a href="https://github.com/shreyansh-2003/PolyVis-Multilingual-Multimodal" target="_blank" rel="noopener">Code</a> -->
               </p>
             </div>
-            <button class="pub-thumb" type="button" aria-expanded="false" aria-controls="tldr-polyvis" aria-label="Show summary">
-              <img src="assets/papers/polyvis.webp" width="480" height="360" loading="lazy" alt="">
+            <button class="pub-thumb" type="button" data-dialog="tldr-polyvis" aria-label="Show summary">
+              <img src="assets/papers/polyvis-thumb.webp" width="480" height="360" loading="lazy" alt="">
             </button>
-            <div class="pub-tldr" id="tldr-polyvis" hidden>
-              <p><strong>TL;DR</strong> LLMs are widely used as judges during post-training, but had not been tested in settings that are both multilingual and multimodal. We built PolyVis, a benchmark in 12 languages covering hallucination detection, reasoning and safety, and tested four open-source judge models. Accuracy reached 95.2 percent on hallucination detection but stayed near chance on reasoning.</p>
-              <p><strong>Key takeaway</strong> No judge model is best everywhere. Performance depends on the mix of model, language and task, so evaluations should report each separately.</p>
-            </div>
+            <dialog class="pub-dialog" id="tldr-polyvis" aria-labelledby="tldr-polyvis-title">
+              <div class="dialog-body">
+                <button class="dialog-close" type="button" aria-label="Close">&times;</button>
+                <p class="dialog-title" id="tldr-polyvis-title">Evaluating LLM-as-a-Judge under Multilingual, Multimodal and Multi-domain Constraints</p>
+                <img src="assets/papers/polyvis.webp" width="1123" height="717" loading="lazy" alt="The PolyVis pipeline: preference datasets are machine-translated into 11 languages, filtered with quality metrics and combined into the benchmark, with an example safety item shown in English and Arabic.">
+                <p><span class="label">TL;DR</span> LLM judges, which grade other models during post-training, were tested across 12 languages on image-and-text tasks. They catch hallucinations with up to 95.2 percent accuracy but judge reasoning at close to a coin toss, and the best judge changes with the language and the task.</p>
+                <p><span class="label">Key takeaway</span> There is no universally good judge, so judges should be evaluated by language and task.</p>
+              </div>
+            </dialog>
           </li>
 
           <li class="pub">
@@ -244,17 +269,22 @@
               <h3 class="pub-title"><a href="https://doi.org/10.1051/mbcb/2025008" target="_blank" rel="noopener">Fully Automated Deep Learning Framework for Detection and Classification of Impacted Mandibular Third Molars in Panoramic Radiographs</a></h3>
               <p class="pub-authors">S. K. Veerabhadrappa, S. Vengusamy, <span class="me">S. Padarha</span>, K. Iyer, S. Yadav</p>
               <p class="pub-meta">
-                <span class="venue">Journal of Oral Medicine and Oral Surgery 2025</span>
+                <span class="venue">Journal of Oral Medicine and Oral Surgery</span>
                 <a href="https://doi.org/10.1051/mbcb/2025008" target="_blank" rel="noopener">Paper</a>
               </p>
             </div>
-            <button class="pub-thumb" type="button" aria-expanded="false" aria-controls="tldr-molars" aria-label="Show summary">
-              <img src="assets/papers/impacted-molars.webp" width="480" height="360" loading="lazy" alt="">
+            <button class="pub-thumb" type="button" data-dialog="tldr-molars" aria-label="Show summary">
+              <img src="assets/papers/impacted-molars-thumb.webp" width="480" height="360" loading="lazy" alt="">
             </button>
-            <div class="pub-tldr" id="tldr-molars" hidden>
-              <p><strong>TL;DR</strong> We built a fully automated system that finds impacted wisdom teeth in panoramic X-rays and classifies their position. It combines VGG16 for detection, YOLOv7 to locate the tooth and ResNet50 for classification. Working with clinicians in Malaysia and the Philippines, we trained it on about 1,800 X-rays checked by an oral radiologist. It detected the teeth with 93.5 percent accuracy and classified them with 92.2 percent accuracy.</p>
-              <p><strong>Key takeaway</strong> Deep learning can reliably automate a routine step in planning wisdom tooth surgery. Dental schools now use the system.</p>
-            </div>
+            <dialog class="pub-dialog" id="tldr-molars" aria-labelledby="tldr-molars-title">
+              <div class="dialog-body">
+                <button class="dialog-close" type="button" aria-label="Close">&times;</button>
+                <p class="dialog-title" id="tldr-molars-title">Fully Automated Deep Learning Framework for Detection and Classification of Impacted Mandibular Third Molars in Panoramic Radiographs</p>
+                <img src="assets/papers/impacted-molars.webp" width="1337" height="601" loading="lazy" alt="Pipeline diagram: panoramic X-rays are pre-processed, a VGG16 model detects third molars, YOLOv7 extracts the region of interest, and a ResNet50 model classifies the type of impaction.">
+                <p><span class="label">TL;DR</span> A three-stage deep learning pipeline reads panoramic X-rays, finds impacted wisdom teeth with 93.5 percent accuracy and classifies their angle with 92.2 percent accuracy. Built with clinicians in Malaysia and the Philippines, it is now used by dental schools.</p>
+                <p><span class="label">Key takeaway</span> A routine, error-prone step in planning wisdom-tooth surgery can be automated reliably.</p>
+              </div>
+            </dialog>
           </li>
 
         </ol>
