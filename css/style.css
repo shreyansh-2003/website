@@ -349,6 +349,76 @@ h3 {
   font-size: 0.9rem;
 }
 
+/* Click-to-expand paper summaries (native <details>, no JS) */
+
+.pub-more {
+  margin-top: 0.3rem;
+  font-size: 0.9rem;
+}
+
+.pub-more > summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--muted);
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+
+.pub-more > summary::-webkit-details-marker {
+  display: none;
+}
+
+.pub-more > summary::before {
+  content: "";
+  width: 0.42em;
+  height: 0.42em;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(-45deg);
+  transition: transform 0.15s ease;
+}
+
+.pub-more[open] > summary::before {
+  transform: rotate(45deg);
+}
+
+.pub-more > summary:hover {
+  color: var(--fg);
+}
+
+.pub-more-body {
+  margin-top: 0.75rem;
+  padding: 1.1rem 1.25rem 0.2rem;
+  background: var(--panel);
+  border-radius: 10px;
+  font-size: 0.97rem;
+}
+
+.pub-more figure {
+  margin: 0 0 1rem;
+}
+
+.pub-more figure img {
+  display: block;
+  width: 100%;
+  background: #fff;
+  border-radius: 6px;
+}
+
+.pub-more figure.narrow img {
+  max-width: 30rem;
+  margin: 0 auto;
+}
+
+.pub-more figcaption {
+  margin-top: 0.5rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
 /* ---------- Footer ---------- */
 
 .site-footer {

@@ -139,6 +139,17 @@
               <a href="https://huggingface.co/datasets/OxRML/AgentSLR" target="_blank" rel="noopener">Dataset</a>
               <a href="https://oxrml.com/agent-slr" target="_blank" rel="noopener">Website</a>
             </p>
+            <details class="pub-more">
+              <summary>Summary</summary>
+              <div class="pub-more-body">
+                <figure>
+                  <img src="assets/papers/agentslr.webp" width="1124" height="612" loading="lazy" alt="The six stages of the AgentSLR workflow: article search and retrieval, title and abstract screening, PDF-to-markdown conversion, full-text screening, data extraction and report generation.">
+                  <figcaption>AgentSLR runs each stage of a systematic review with an LLM and scores every stage separately.</figcaption>
+                </figure>
+                  <p>Systematic reviews are how science takes stock of what it knows: experts screen thousands of articles and extract the numbers that go on to shape public-health decisions. We wanted to know whether LLMs can do this work. With epidemiologists at Imperial College London, we built AgentSLR, an open harness that runs every stage of an epidemiological review with an LLM, alongside an expert-annotated dataset of 16,248 articles from reviews of WHO priority pathogens.</p>
+                  <p>No single frontier model won every stage. Structured data extraction was the clear bottleneck, with no model averaging above 0.67 field-level F1, and price was a poor guide to quality: GPT-5.2 cost over 96× more than gpt-oss-120b for slightly lower performance. With gpt-oss-120b, the full pipeline took about 20 hours, against roughly 385 hours for a manual review. Some closed models refused outright to process legitimate studies of these pathogens, which makes a strong case for open, locally reproducible tools. The models are useful, but not yet ready to run without expert supervision.</p>
+              </div>
+            </details>
           </li>
 
           <li class="pub">
@@ -149,6 +160,17 @@
               <a href="https://arxiv.org/abs/2510.17431" target="_blank" rel="noopener">Paper</a>
               <a href="https://github.com/Yushi-Y/RL-search-align" target="_blank" rel="noopener">Code</a>
             </p>
+            <details class="pub-more">
+              <summary>Summary</summary>
+              <div class="pub-more-body">
+                <figure>
+                  <img src="assets/papers/agentic-rl-search.webp" width="1268" height="456" loading="lazy" alt="Diagnosis, mechanism and mitigation: RL-trained search models issue harmful searches under a search trigger, RL shifts query representations toward a harmful direction, and a projection penalty during RL restores safety.">
+                  <figcaption>Diagnosing, explaining and fixing the safety loss from agentic RL for search.</figcaption>
+                </figure>
+                  <p>Agentic reinforcement learning teaches instruction-tuned models to use tools such as search. We asked what this does to their safety. At first glance, RL-trained search models look fine: they inherit refusals by turning harmful requests into harmless queries. But a simple trigger that makes the model search before it can refuse breaks this, and the models go on to run chains of harmful searches. Search safety falls by up to 68.6% for Qwen and 69.6% for Llama relative to their instruction-tuned counterparts, across model families, sizes and RL algorithms.</p>
+                  <p>Looking inside the models, we found a linear &ldquo;search direction&rdquo; in the residual stream that controls query safety, and RL training steadily pushes queries towards its harmful end. Penalising movement along this direction during RL restores instruction-tuned levels of safety within 200 training steps, with no loss in QA accuracy, no extra data and about 0.3% extra compute.</p>
+              </div>
+            </details>
           </li>
 
           <li class="pub">
@@ -161,6 +183,17 @@
               <a href="https://huggingface.co/datasets/OxRML/MADQA" target="_blank" rel="noopener">Dataset</a>
               <a href="https://huggingface.co/spaces/Snowflake/MADQA-Leaderboard" target="_blank" rel="noopener">Leaderboard</a>
             </p>
+            <details class="pub-more">
+              <summary>Summary</summary>
+              <div class="pub-more-body">
+                <figure class="narrow">
+                  <img src="assets/papers/madqa.webp" width="976" height="731" loading="lazy" alt="Accuracy against step limit for humans, Gemini 3 Pro, Claude Sonnet 4.5 and GPT-5. Humans start far higher; agents catch up only with many more search steps.">
+                  <figcaption>Accuracy as the step budget grows. Humans answer 50% of questions correctly with their first query; Gemini 3 Pro starts at about 12% and catches up only by searching more.</figcaption>
+                </figure>
+                  <p>Multimodal agents are increasingly used to answer questions over large collections of real documents. But do they plan their way to an answer, or search until something sticks? We built MADQA, a benchmark of 2,250 human-written questions over 800 varied PDFs, designed using Classical Test Theory to separate stronger agents from weaker ones, together with an evaluation protocol that weighs accuracy against effort.</p>
+                  <p>The best agents match human searchers on raw accuracy, but they get different questions right and rely on brute-force search to make up for weak planning. They also stall almost 20% short of oracle performance, often stuck in unproductive loops. We released the dataset and harness to help push agents towards calibrated, efficient reasoning.</p>
+              </div>
+            </details>
           </li>
 
           <li class="pub">
@@ -172,6 +205,17 @@
               <a href="https://github.com/gauntlet-benchmark/evaluation-harness" target="_blank" rel="noopener">Code</a>
               <a href="https://gauntlet-landing-page.vercel.app/" target="_blank" rel="noopener">Website</a>
             </p>
+            <details class="pub-more">
+              <summary>Summary</summary>
+              <div class="pub-more-body">
+                <figure>
+                  <img src="assets/papers/gauntlet.webp" width="1062" height="328" loading="lazy" alt="Screenshots of the five GauntletBench applications: Video Editor, Workflow Builder, 3D Modeller, Flight Analyser and Circuit Designer, each with an example task.">
+                  <figcaption>The five applications in GauntletBench, each with an example task.</figcaption>
+                </figure>
+                  <p>Most agent benchmarks are built on familiar apps such as shopping sites and booking forms, and frontier agents are close to saturating them. GauntletBench instead puts agents into five less familiar professional web apps (a video editor, a workflow builder, a 3D modeller, a flight analyser and a circuit designer), with 135 vision-heavy tasks that test temporal perception, graphical understanding and 3D reasoning.</p>
+                  <p>When we released it in June 2026, the best agent completed 28.2% of tasks, while non-expert humans completed over 80%. Three months later, GPT-6 Astra scored 83.0%, the first agent to beat the human baseline. It's a reminder of how quickly benchmarks go stale, and we're now working on a harder version.</p>
+              </div>
+            </details>
           </li>
 
           <li class="pub">
@@ -182,6 +226,17 @@
               <a href="https://openreview.net/pdf/300209bf37f4e6baf904f7f7ac93d833e756edfc.pdf" target="_blank" rel="noopener">Paper</a>
               <a href="https://github.com/shreyansh-2003/PolyVis-Multilingual-Multimodal" target="_blank" rel="noopener">Code</a>
             </p>
+            <details class="pub-more">
+              <summary>Summary</summary>
+              <div class="pub-more-body">
+                <figure>
+                  <img src="assets/papers/polyvis.webp" width="1123" height="717" loading="lazy" alt="The PolyVis pipeline: preference datasets are machine-translated into 11 languages, filtered with quality metrics and combined into the benchmark, with an example safety item shown in English and Arabic.">
+                  <figcaption>How PolyVis is built, with a sample safety item translated from English to Arabic.</figcaption>
+                </figure>
+                  <p>LLMs are now routinely used as judges and reward models during post-training, but they had not been tested in settings that are both multilingual and multimodal. We built PolyVis, which extends vision-language preference data to 12 languages across three objectives: spotting hallucinations, judging reasoning and instruction following, and judging safety. We used it to evaluate four open-source judge models.</p>
+                  <p>How good a judge is depends on the combination of model, language and task. Hallucination detection was the easiest (up to 95.2% accuracy), while reasoning judgements hovered near chance. The model best at judging safety was the worst at spotting hallucinations, and some non-English languages matched or beat English. One-size-fits-all judge evaluations hide these differences.</p>
+              </div>
+            </details>
           </li>
 
           <li class="pub">
@@ -191,6 +246,17 @@
             <p class="pub-links">
               <a href="https://doi.org/10.1051/mbcb/2025008" target="_blank" rel="noopener">Paper</a>
             </p>
+            <details class="pub-more">
+              <summary>Summary</summary>
+              <div class="pub-more-body">
+                <figure>
+                  <img src="assets/papers/impacted-molars.webp" width="1337" height="601" loading="lazy" alt="Pipeline diagram: panoramic X-rays are pre-processed, a VGG16 model detects third molars, YOLOv7 extracts the region of interest, and a ResNet50 model classifies the type of impaction.">
+                  <figcaption>The pipeline, from raw panoramic X-ray to Winter's classification.</figcaption>
+                </figure>
+                  <p>Impacted wisdom teeth are one of the most common reasons for minor oral surgery, and planning an extraction depends on reading the tooth's position from a panoramic X-ray. Working with clinicians in Malaysia and the Philippines, we built a fully automated pipeline for this: a VGG16-based model detects the mandibular third molar, YOLOv7 locates it, and a ResNet50 model classifies how it is impacted using Winter's classification.</p>
+                  <p>Trained on around 1,800 radiographs with annotations validated by an oral radiologist, the detection model reached 93.5% test accuracy and the classifier 92.2% (AUC 98.3). The system is now used by dental schools.</p>
+              </div>
+            </details>
           </li>
 
         </ol>
