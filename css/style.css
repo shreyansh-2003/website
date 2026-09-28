@@ -255,6 +255,100 @@ h3 {
   font-size: 0.9rem;
 }
 
+/* ---------- Research ---------- */
+
+.interests {
+  margin: 0 0 1rem;
+  padding-left: 1.2rem;
+}
+
+.interests li {
+  margin-bottom: 0.6rem;
+}
+
+.interests li::marker {
+  color: var(--muted);
+}
+
+.pubs {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.pub {
+  padding: 1.15rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.pub:first-child {
+  padding-top: 0.5rem;
+}
+
+.pub:last-child {
+  border-bottom: 0;
+}
+
+.pub-venue {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-bottom: 0.4rem;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.1rem 0.55rem;
+  border-radius: 999px;
+  background: var(--badge-bg);
+  color: var(--badge-fg);
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+}
+
+.badge.hl {
+  background: var(--hl-bg);
+  color: var(--hl-fg);
+}
+
+.pub-title {
+  margin: 0;
+  font-size: 1.02rem;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0;
+}
+
+.pub-title a {
+  color: var(--fg);
+}
+
+.pub-title a:hover {
+  color: var(--accent);
+}
+
+.pub-authors {
+  margin: 0.25rem 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.pub-authors .me {
+  color: var(--fg);
+  font-weight: 600;
+}
+
+.pub-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem 1rem;
+  margin: 0.4rem 0 0;
+  font-size: 0.9rem;
+}
+
 /* ---------- Footer ---------- */
 
 .site-footer {

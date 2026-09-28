@@ -87,6 +87,113 @@
       <!-- ============ RESEARCH ============ -->
       <section id="research" aria-labelledby="research-title">
         <h2 id="research-title">Research</h2>
+        <p>
+          My research asks how far we can trust AI systems that do science, and how to make them more trustworthy.
+          At <a href="https://oxrml.com" target="_blank" rel="noopener">OxRML</a>, I build evaluations and harnesses
+          that test models on long, realistic research tasks, and study how post-training changes the way they behave.
+          Some questions I'm currently thinking about:
+        </p>
+        <ul class="interests">
+          <li>
+            <strong>Open tools for researchers.</strong> Closed models can refuse legitimate work or change without
+            notice. I want to build plug-and-play harnesses that let researchers use open-weight models with confidence.
+          </li>
+          <li>
+            <strong>Integrity at scale.</strong> Research is increasingly split across many agents, some of which learn
+            to game their graders or tamper with their own logs. I want tests that catch this before flawed results
+            reach the scientific record.
+          </li>
+          <li>
+            <strong>Diversity of ideas.</strong> Models from different developers often give strikingly similar answers.
+            If thousands of agents share one way of thinking, automated research may explore fewer ideas, not more.
+            I want to measure this narrowing, and find ways to widen it.
+          </li>
+          <li>
+            <strong>Safe self-improvement.</strong> Training a model on one narrow skill can erode its safety elsewhere;
+            we saw this with search agents. I want to test whether one agent can train another to get better at a task
+            without that erosion.
+          </li>
+        </ul>
+
+        <h3>Selected publications</h3>
+        <p class="note">
+          * equal contribution. Full list on
+          <a href="https://scholar.google.com/citations?user=b0aneOsAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>.
+        </p>
+
+        <!--
+          To add a paper: copy one <li class="pub"> block and keep the list newest first.
+          - Badges: <span class="badge">VENUE YEAR</span>; add class "hl" to highlight (e.g. orals, awards).
+          - Mark yourself in the author list with <span class="me">S. Padarha</span>.
+          - The <details> block is the optional click-to-expand summary; its figure lives in assets/papers/.
+        -->
+        <ol class="pubs">
+
+          <li class="pub">
+            <div class="pub-venue"><span class="badge">NeurIPS 2026</span></div>
+            <h4 class="pub-title"><a href="https://arxiv.org/abs/2603.22327" target="_blank" rel="noopener">Evaluating AI-based Scientific Knowledge Synthesis with Epidemiological Systematic Reviews</a></h4>
+            <p class="pub-authors"><span class="me">S. Padarha*</span>, R. O. Kearns*, T. Naidoo, L. Yang, Ł. Borchmann, P. Błaszczyk, C. Morgenstern, R. McCabe, S. Bhatia, P. H. Torr, J. Foerster, S. A. Hale, T. Rawson, A. Cori, E. Semenova, A. Mahdi</p>
+            <p class="pub-links">
+              <a href="https://arxiv.org/abs/2603.22327" target="_blank" rel="noopener">Paper</a>
+              <a href="https://github.com/OxRML/AgentSLR" target="_blank" rel="noopener">Code</a>
+              <a href="https://huggingface.co/datasets/OxRML/AgentSLR" target="_blank" rel="noopener">Dataset</a>
+              <a href="https://oxrml.com/agent-slr" target="_blank" rel="noopener">Website</a>
+            </p>
+          </li>
+
+          <li class="pub">
+            <div class="pub-venue"><span class="badge">EMNLP 2026</span></div>
+            <h4 class="pub-title"><a href="https://arxiv.org/abs/2510.17431" target="_blank" rel="noopener">Agentic Reinforcement Learning for Search Misaligns Instruction-Tuning</a></h4>
+            <p class="pub-authors">Y. Yang, <span class="me">S. Padarha</span>, S. Ball, A. Lee, A. Mahdi</p>
+            <p class="pub-links">
+              <a href="https://arxiv.org/abs/2510.17431" target="_blank" rel="noopener">Paper</a>
+              <a href="https://github.com/Yushi-Y/RL-search-align" target="_blank" rel="noopener">Code</a>
+            </p>
+          </li>
+
+          <li class="pub">
+            <div class="pub-venue"><span class="badge">ICML 2026</span><span class="badge hl">Oral · Top 0.5%</span></div>
+            <h4 class="pub-title"><a href="https://arxiv.org/abs/2603.12180" target="_blank" rel="noopener">Strategic Navigation or Stochastic Search? How Agents and Humans Reason Over Document Collections</a></h4>
+            <p class="pub-authors">Ł. Borchmann, J. Van Landeghem, M. Turski, <span class="me">S. Padarha</span>, R. O. Kearns, A. Mahdi, et al.</p>
+            <p class="pub-links">
+              <a href="https://arxiv.org/abs/2603.12180" target="_blank" rel="noopener">Paper</a>
+              <a href="https://github.com/OxRML/MADQA" target="_blank" rel="noopener">Code</a>
+              <a href="https://huggingface.co/datasets/OxRML/MADQA" target="_blank" rel="noopener">Dataset</a>
+              <a href="https://huggingface.co/spaces/Snowflake/MADQA-Leaderboard" target="_blank" rel="noopener">Leaderboard</a>
+            </p>
+          </li>
+
+          <li class="pub">
+            <div class="pub-venue"><span class="badge">Preprint 2026</span></div>
+            <h4 class="pub-title"><a href="https://arxiv.org/abs/2606.14397" target="_blank" rel="noopener">Running the Gauntlet: Challenging Agentic Tasks</a></h4>
+            <p class="pub-authors">M. Vysotskyi*, R. Lin*, G. Biziel, …, <span class="me">S. Padarha</span>, …, A. Mahdi, V. Karpiv, P. Torr, A. Bibi</p>
+            <p class="pub-links">
+              <a href="https://arxiv.org/abs/2606.14397" target="_blank" rel="noopener">Paper</a>
+              <a href="https://github.com/gauntlet-benchmark/evaluation-harness" target="_blank" rel="noopener">Code</a>
+              <a href="https://gauntlet-landing-page.vercel.app/" target="_blank" rel="noopener">Website</a>
+            </p>
+          </li>
+
+          <li class="pub">
+            <div class="pub-venue"><span class="badge">NeurIPS 2025 Workshop</span></div>
+            <h4 class="pub-title"><a href="https://openreview.net/pdf/300209bf37f4e6baf904f7f7ac93d833e756edfc.pdf" target="_blank" rel="noopener">Evaluating LLM-as-a-Judge under Multilingual, Multimodal and Multi-domain Constraints</a></h4>
+            <p class="pub-authors"><span class="me">S. Padarha</span>, E. Semenova, B. Vidgen, A. Mahdi, S. A. Hale</p>
+            <p class="pub-links">
+              <a href="https://openreview.net/pdf/300209bf37f4e6baf904f7f7ac93d833e756edfc.pdf" target="_blank" rel="noopener">Paper</a>
+              <a href="https://github.com/shreyansh-2003/PolyVis-Multilingual-Multimodal" target="_blank" rel="noopener">Code</a>
+            </p>
+          </li>
+
+          <li class="pub">
+            <div class="pub-venue"><span class="badge">J. Oral Med. Oral Surg. 2025</span></div>
+            <h4 class="pub-title"><a href="https://doi.org/10.1051/mbcb/2025008" target="_blank" rel="noopener">Fully Automated Deep Learning Framework for Detection and Classification of Impacted Mandibular Third Molars in Panoramic Radiographs</a></h4>
+            <p class="pub-authors">S. K. Veerabhadrappa, S. Vengusamy, <span class="me">S. Padarha</span>, K. Iyer, S. Yadav</p>
+            <p class="pub-links">
+              <a href="https://doi.org/10.1051/mbcb/2025008" target="_blank" rel="noopener">Paper</a>
+            </p>
+          </li>
+
+        </ol>
       </section>
 
       <!-- ============ EXPERIENCE ============ -->
