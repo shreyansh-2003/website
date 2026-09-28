@@ -1,24 +1,25 @@
 # Shreyansh Padarha: personal website
 
 My academic homepage: a short bio and research interests, selected publications (click a paper's
-thumbnail for a TL;DR), experience, and education, grants and teaching. It is a single static page
-hosted on GitHub Pages.
+thumbnail for a popup with its figure, TL;DR and key takeaway), experience, and education, grants and
+teaching. It is a single static page hosted on GitHub Pages.
 
 ## Stack
 
-Plain HTML and CSS, plus one 10-line script (`js/site.js`) that opens and closes the paper TL;DRs.
-No framework, no build step, no dependencies. Dark mode follows the visitor's system setting.
+Plain HTML and CSS, plus one short script (`js/site.js`) that opens and closes the paper popups
+(native `<dialog>`). No framework, no build step, no dependencies. Dark mode follows the visitor's
+system setting. The English/Hindi name swap on hover (header and footer) is CSS only: see `.swap`.
 
 ## Structure
 
 ```
 index.html                  the whole site, in sections: intro, #research, #experience, #about
 css/style.css               all styling; colours are CSS variables at the top (dark mode swaps them)
-js/site.js                  thumbnail click → show/hide that paper's TL;DR panel
+js/site.js                  thumbnail click → open that paper's popup; click outside, × or Esc closes
 assets/
   Shreyansh_Padarha_CV.pdf  CV linked from the header and the About section
   img/                      profile photo and favicons
-  papers/                   one 4:3 thumbnail per paper (480 × 360 WebP), cropped from a paper figure
+  papers/                   per paper: NAME-thumb.webp (4:3, 480 × 360) and NAME.webp (full figure)
 favicon.svg
 .nojekyll                   tells GitHub Pages to serve files as-is (no Jekyll processing)
 ```
@@ -36,7 +37,7 @@ Opening `index.html` directly in a browser also works.
 | Task | How |
 | --- | --- |
 | Update the CV | Replace `assets/Shreyansh_Padarha_CV.pdf`, keeping the filename. |
-| Add a paper | Copy an `<li class="pub">` block inside `<ol class="pubs">` (newest first). Wrap my name in `<span class="me">` and the venue in `<span class="venue">`. Add a 480 × 360 thumbnail to `assets/papers/`, and give the TL;DR panel a unique `id` that matches the thumbnail button's `aria-controls`. |
+| Add a paper | Copy an `<li class="pub">` block inside `<ol class="pubs">` (newest first). Wrap my name in `<span class="me">` and the venue in `<span class="venue">`. Add `NAME-thumb.webp` and `NAME.webp` to `assets/papers/`. Give the `<dialog>` a unique `id` and set the thumbnail button's `data-dialog` to match. TL;DR: two sentences at most. |
 | Add a position, award or teaching role | Copy an `<li>` in the matching `<ol class="timeline">`. |
 | Change the photo | Replace `assets/img/profile.jpg` (5:6 portrait, about 600 × 715). |
 | Change colours or fonts | Edit the variables at the top of `css/style.css`. |
