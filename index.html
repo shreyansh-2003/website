@@ -59,7 +59,9 @@
           <img src="assets/img/profile.jpg" width="600" height="715" alt="Shreyansh Padarha">
         </figure>
 
-        <h1>Shreyansh Padarha</h1>
+        <!-- Hover swaps the name to Hindi. The Hindi copy is aria-hidden and unselectable,
+             so screen readers and copy-paste still get the English name. -->
+        <h1 class="swap"><span>Shreyansh Padarha</span><span lang="hi" aria-hidden="true">श्रेयांश पदरहा</span></h1>
         <p class="tagline">PhD Researcher · University of Oxford</p>
 
         <ul class="social" aria-label="Links">
@@ -90,32 +92,37 @@
           <a href="https://oxrml.com" target="_blank" rel="noopener">Reasoning with Machines Lab (OxRML)</a>
           and supervised by
           <a href="https://www.oii.ox.ac.uk/people/profiles/adam-mahdi/" target="_blank" rel="noopener">Professor Adam Mahdi</a>.
-          I work on building, and better understanding, safer ways to automate scientific research. AI agents now
-          search the literature, write code and run experiments. I want to know which parts of research we can hand
-          over to them, and how to check their work.
+          I build evaluations and methods that automate scientific research in a safe and translational way.
         </p>
         <p>
-          To do this, I work on LLM evaluations, post-training and AI safety, often with multimodal and agentic
-          systems. My research has featured at AI venues such as ICML, NeurIPS and EMNLP.
+          AI agents (coding, multimodal, physical and more) can now do a great deal. I want to understand which parts
+          of scientific research we can hand over to them, and how to check answers that sound right but have no
+          ground truth to test against. To do this, my work spans evaluation design, post-training and AI safety,
+          often testing multimodal and agentic systems. My research has featured at AI venues such as ICML, NeurIPS
+          and EMNLP.
         </p>
-        <p>Currently, I am interested in:</p>
+        <p>Branches I am currently interested in:</p>
         <ul class="interests">
           <li>
-            <strong>Models that improve models.</strong> How AI agents go about training other models when they must
-            balance several machine learning objectives at once, and how well they do it.
+            <strong>Models that improve models (others or themselves).</strong> How AI agents train other models when
+            they must balance several machine learning objectives at once, often competing ones. And how well they do it.
           </li>
           <li>
             <strong>Discovery and integrity.</strong> Which stages of training decide a model's ethics. Whether models
-            trained without ethical limits make better scientific discoveries, and whether a model could learn to act
+            trained without ethical limits make better scientific discoveries. Whether a model could learn to act
             ethically in training but not at test time.
           </li>
           <li>
             <strong>Uncertainty and conflicting evidence.</strong> How models represent uncertainty and weigh
-            conflicting information, and how this shapes the conclusions they reach.
+            conflicting information, and how this shapes their conclusions. Do they always take the same scientific
+            route? Can we steer their early calls to prevent failures downstream?
+            <span class="aside">[Maybe LLMs cannot, and this is a job for world models?]</span>
           </li>
           <li>
-            <strong>AI in research.</strong> Whether automating research helps or harms science overall. What balance of
-            human and AI work is best, and what kind of feedback, in what form, gets the best results.
+            <strong>Broader use of AI in research.</strong> Whether automating research helps or harms science overall.
+            <span class="aside">[That needs a crystal ball, but smaller use cases can be tested piece by piece.]</span>
+            What balance of human and AI work is best, and what kind of feedback, in what form, gets the best results.
+            <span class="aside">[Scale, and confounds from the harness itself, make this hard to answer.]</span>
           </li>
         </ul>
       </header>
@@ -341,9 +348,12 @@
           <a href="assets/Shreyansh_Padarha_CV.pdf" download="Shreyansh_Padarha_CV.pdf">Download CV (PDF)</a>
         </div>
         <p>
-          I came to AI research through data science. My early projects applied machine learning to healthcare,
-          agriculture and industry. Each taught me the same thing: a result is only useful if people can trust it.
-          That idea still drives my research.
+          I was a data scientist first <span class="aside">[a term used loosely these days, I know]</span>, before
+          I fell in love with AI research. As an undergraduate, I applied machine learning to healthcare, agriculture
+          and industry <span class="aside">[including entertainment: video post-production!]</span>. One lesson from
+          those early expeditions: an AI system is only useful if people can trust it
+          <span class="aside">[which often has little to do with benchmark numbers]</span>. That idea still
+          motivates my research.
         </p>
 
         <h3>Education</h3>
@@ -351,22 +361,22 @@
           <li>
             <span class="when">2026 – present</span>
             <div class="what">
-              <strong>DPhil</strong> · <span class="org">University of Oxford</span>
-              <p>Oxford Internet Institute and Wadham College. Research on LLM evaluations and post-training for science.</p>
+              <strong>DPhil Social Data Science</strong> (Evaluating Automated Research) · <span class="org">University of Oxford</span>
+              <p>Wadham College</p>
             </div>
           </li>
           <li>
             <span class="when">2024 – 2025</span>
             <div class="what">
               <strong>MSc Social Data Science</strong> · <span class="org">University of Oxford</span>
-              <p>Distinction (73 percent). Top 5 percent of the cohort.</p>
+              <p>Distinction (73%) · Kellogg College</p>
             </div>
           </li>
           <li>
             <span class="when">2021 – 2024</span>
             <div class="what">
               <strong>BSc Data Science</strong> · <span class="org">CHRIST University, India</span>
-              <p>GPA 3.93/4.0. Ranked first in my year. Awarded the department gold medal.</p>
+              <p>Gold Medalist (3.93/4.0)</p>
             </div>
           </li>
         </ol>
@@ -410,12 +420,11 @@
 
     </main>
 
+    <!-- Footer shows Hindi by default and English on hover; the whole line mails the English
+         address. The English text is the real (readable, copyable) text; the Hindi copy is aria-hidden. -->
     <footer class="site-footer">
-      <p class="footer-name" lang="hi">श्रेयांश पदरहा</p>
-      <p class="footer-email">
-        <a href="mailto:shreyansh.padarha@oii.ox.ac.uk">shreyansh.padarha@oii.ox.ac.uk</a>
-        <span aria-hidden="true">·</span>
-        <a href="mailto:shreyansh.padarha@oii.ox.ac.uk" lang="hi">श्रेयांश.पदरहा@oii.ox.ac.uk</a>
+      <p>
+        <a class="swap" href="mailto:shreyansh.padarha@oii.ox.ac.uk"><span lang="hi" aria-hidden="true">श्रेयांश पदरहा · श्रेयांश.पदरहा@oii.ox.ac.uk</span><span>Shreyansh Padarha · shreyansh.padarha@oii.ox.ac.uk</span></a>
       </p>
     </footer>
   </div>

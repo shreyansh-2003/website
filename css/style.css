@@ -168,6 +168,49 @@ p {
   margin: 0;
 }
 
+/* English/Hindi name swap: both spans share one grid cell, so the box is as wide
+   as the longer version and nothing shifts. First span shows; second shows on hover. */
+.swap {
+  display: inline-grid;
+}
+
+.swap > span {
+  grid-area: 1 / 1;
+  transition: opacity 0.25s ease;
+}
+
+.swap > span:last-child {
+  opacity: 0;
+}
+
+.swap [aria-hidden="true"] {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+@media (hover: hover) {
+  .swap:hover > span:first-child {
+    opacity: 0;
+  }
+
+  .swap:hover > span:last-child {
+    opacity: 1;
+  }
+}
+
+.swap:focus-visible > span:first-child {
+  opacity: 0;
+}
+
+.swap:focus-visible > span:last-child {
+  opacity: 1;
+}
+
+/* My own asides, written in [square brackets] */
+.aside {
+  color: var(--muted);
+}
+
 .tagline {
   color: var(--muted);
   font-size: 1.05rem;
@@ -528,23 +571,11 @@ body:has(.pub-dialog[open]) {
   margin: 0;
 }
 
-.site-footer .footer-name {
-  color: var(--fg);
-  font-size: 1rem;
-  font-weight: 600;
-  margin-bottom: 0.2rem;
-}
-
-.footer-email {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.1rem 0.6rem;
-}
-
-.footer-email a {
+.site-footer a {
   color: var(--muted);
 }
 
-.footer-email a:hover {
+.site-footer a:hover {
   color: var(--fg);
+  text-decoration: none;
 }
