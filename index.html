@@ -9,7 +9,7 @@
   <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#111317" media="(prefers-color-scheme: dark)">
 
-  <!-- Link previews (Slack, X, LinkedIn…). Once the custom domain is live, also add
+  <!-- Link previews (Slack, LinkedIn…). Once the custom domain is live, also add
        <link rel="canonical">, og:url and og:image with absolute https:// URLs. -->
   <meta property="og:type" content="profile">
   <meta property="og:title" content="Shreyansh Padarha">
@@ -20,6 +20,7 @@
   <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
   <link rel="stylesheet" href="css/style.css">
+  <script src="js/site.js" defer></script>
 
   <script type="application/ld+json">
   {
@@ -32,8 +33,7 @@
     "sameAs": [
       "https://scholar.google.com/citations?user=b0aneOsAAAAJ",
       "https://github.com/shreyansh-2003",
-      "https://www.linkedin.com/in/shreyansh-padarha/",
-      "https://x.com/padarha_s"
+      "https://www.linkedin.com/in/shreyansh-padarha/"
     ]
   }
   </script>
@@ -53,242 +53,208 @@
     <main id="main">
 
       <!-- ============ INTRO ============ -->
+      <!-- The photo is floated right, so the text below wraps around and under it. -->
       <header id="top" class="hero">
-        <div class="hero-text">
-          <h1>Shreyansh Padarha</h1>
-          <p class="tagline">PhD Researcher · University of Oxford</p>
-
-          <ul class="social" aria-label="Links">
-            <li>
-              <a href="mailto:shreyansh.padarha@oii.ox.ac.uk">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Email</a>
-            </li>
-            <li>
-              <a href="https://scholar.google.com/citations?user=b0aneOsAAAAJ&amp;hl=en" target="_blank" rel="noopener">
-                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5z"/></svg>Scholar</a>
-            </li>
-            <li>
-              <a href="https://github.com/shreyansh-2003" target="_blank" rel="noopener">
-                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>GitHub</a>
-            </li>
-            <li>
-              <a href="https://www.linkedin.com/in/shreyansh-padarha/" target="_blank" rel="noopener">
-                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>LinkedIn</a>
-            </li>
-            <li>
-              <a href="https://x.com/padarha_s" target="_blank" rel="noopener">
-                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>X</a>
-            </li>
-            <li>
-              <a href="assets/Shreyansh_Padarha_CV.pdf" target="_blank" rel="noopener">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg>CV</a>
-            </li>
-          </ul>
-
-          <div class="bio">
-            <p>
-              I'm a PhD researcher at the University of Oxford, based in the
-              <a href="https://oxrml.com" target="_blank" rel="noopener">Reasoning with Machines Lab (OxRML)</a>
-              and supervised by
-              <a href="https://www.oii.ox.ac.uk/people/profiles/adam-mahdi/" target="_blank" rel="noopener">Prof. Adam Mahdi</a>.
-              I'm interested in building, and better understanding, safer paradigms for automated scientific research.
-              AI agents can now search the literature, write code and run experiments; I want to work out which parts
-              of research we can hand over to them, and how to check what they produce.
-            </p>
-            <p>
-              To get there, I work on LLM evaluations, post-training and AI safety, often with multimodal and agentic
-              systems. My research has featured at AI venues such as ICML (oral), NeurIPS and EMNLP. Most recently, I led
-              <a href="https://oxrml.com/agent-slr" target="_blank" rel="noopener">AgentSLR</a>, an open harness that
-              tests whether LLMs can carry out systematic reviews in epidemiology, built with epidemiologists at
-              Imperial College London.
-            </p>
-            <p>
-              Before my PhD, I completed an MSc at Oxford with Distinction, studied data science at CHRIST University
-              in India, and built applied machine learning systems, from spotting impacted wisdom teeth in dental X-rays
-              to identifying cattle breeds from phone photos.
-            </p>
-          </div>
-        </div>
-
         <figure class="hero-photo">
-          <img src="assets/img/profile.jpg" width="560" height="700" alt="Shreyansh Padarha">
+          <img src="assets/img/profile.jpg" width="600" height="715" alt="Shreyansh Padarha">
         </figure>
+
+        <h1>Shreyansh Padarha</h1>
+        <p class="tagline">PhD Researcher · University of Oxford</p>
+
+        <ul class="social" aria-label="Links">
+          <li>
+            <a href="mailto:shreyansh.padarha@oii.ox.ac.uk">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>Email</a>
+          </li>
+          <li>
+            <a href="https://scholar.google.com/citations?user=b0aneOsAAAAJ&amp;hl=en" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5z"/></svg>Scholar</a>
+          </li>
+          <li>
+            <a href="https://github.com/shreyansh-2003" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>GitHub</a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/shreyansh-padarha/" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>LinkedIn</a>
+          </li>
+          <li>
+            <a href="assets/Shreyansh_Padarha_CV.pdf" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>CV</a>
+          </li>
+        </ul>
+
+        <p>
+          I am a PhD researcher at the University of Oxford, based in the
+          <a href="https://oxrml.com" target="_blank" rel="noopener">Reasoning with Machines Lab (OxRML)</a>
+          and supervised by
+          <a href="https://www.oii.ox.ac.uk/people/profiles/adam-mahdi/" target="_blank" rel="noopener">Professor Adam Mahdi</a>.
+          I work on building, and better understanding, safer ways to automate scientific research. AI agents now
+          search the literature, write code and run experiments. I want to know which parts of research we can hand
+          over to them, and how to check their work.
+        </p>
+        <p>
+          To do this, I work on LLM evaluations, post-training and AI safety, often with multimodal and agentic
+          systems. My research has featured at AI venues such as ICML, NeurIPS and EMNLP.
+        </p>
+        <p>Currently, I am interested in:</p>
+        <ul class="interests">
+          <li>
+            <strong>Models that improve models.</strong> How AI agents go about training other models when they must
+            balance several machine learning objectives at once, and how well they do it.
+          </li>
+          <li>
+            <strong>Discovery and integrity.</strong> Which stages of training decide a model's ethics. Whether models
+            trained without ethical limits make better scientific discoveries, and whether a model could learn to act
+            ethically in training but not at test time.
+          </li>
+          <li>
+            <strong>Uncertainty and conflicting evidence.</strong> How models represent uncertainty and weigh
+            conflicting information, and how this shapes the conclusions they reach.
+          </li>
+          <li>
+            <strong>AI in research.</strong> Whether automating research helps or harms science overall. What balance of
+            human and AI work is best, and what kind of feedback, in what form, gets the best results.
+          </li>
+        </ul>
       </header>
 
       <!-- ============ RESEARCH ============ -->
       <section id="research" aria-labelledby="research-title">
         <h2 id="research-title">Research</h2>
-        <p>
-          My research asks how far we can trust AI systems that do science, and how to make them more trustworthy.
-          At <a href="https://oxrml.com" target="_blank" rel="noopener">OxRML</a>, I build evaluations and harnesses
-          that test models on long, realistic research tasks, and study how post-training changes the way they behave.
-          Some questions I'm currently thinking about:
-        </p>
-        <ul class="interests">
-          <li>
-            <strong>Open tools for researchers.</strong> Closed models can refuse legitimate work or change without
-            notice. I want to build plug-and-play harnesses that let researchers use open-weight models with confidence.
-          </li>
-          <li>
-            <strong>Integrity at scale.</strong> Research is increasingly split across many agents, some of which learn
-            to game their graders or tamper with their own logs. I want tests that catch this before flawed results
-            reach the scientific record.
-          </li>
-          <li>
-            <strong>Diversity of ideas.</strong> Models from different developers often give strikingly similar answers.
-            If thousands of agents share one way of thinking, automated research may explore fewer ideas, not more.
-            I want to measure this narrowing, and find ways to widen it.
-          </li>
-          <li>
-            <strong>Safe self-improvement.</strong> Training a model on one narrow skill can erode its safety elsewhere;
-            we saw this with search agents. I want to test whether one agent can train another to get better at a task
-            without that erosion.
-          </li>
-        </ul>
-
-        <h3>Selected publications</h3>
         <p class="note">
-          * equal contribution. Full list on
+          Selected publications. * Equal contribution. Full list on
           <a href="https://scholar.google.com/citations?user=b0aneOsAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>.
+          Click a figure for a short summary.
         </p>
 
         <!--
           To add a paper: copy one <li class="pub"> block and keep the list newest first.
-          - Badges: <span class="badge">VENUE YEAR</span>; add class "hl" to highlight (e.g. orals, awards).
           - Mark yourself in the author list with <span class="me">S. Padarha</span>.
-          - The <details> block is the optional click-to-expand summary; its figure lives in assets/papers/.
+          - The venue goes in <span class="venue"> on the links line.
+          - Thumbnail: a 4:3 image (480 × 360) in assets/papers/.
+          - The thumbnail button's aria-controls must match the id of the TL;DR panel below it.
         -->
         <ol class="pubs">
 
           <li class="pub">
-            <div class="pub-venue"><span class="badge">NeurIPS 2026</span></div>
-            <h4 class="pub-title"><a href="https://arxiv.org/abs/2603.22327" target="_blank" rel="noopener">Evaluating AI-based Scientific Knowledge Synthesis with Epidemiological Systematic Reviews</a></h4>
-            <p class="pub-authors"><span class="me">S. Padarha*</span>, R. O. Kearns*, T. Naidoo, L. Yang, Ł. Borchmann, P. Błaszczyk, C. Morgenstern, R. McCabe, S. Bhatia, P. H. Torr, J. Foerster, S. A. Hale, T. Rawson, A. Cori, E. Semenova, A. Mahdi</p>
-            <p class="pub-links">
-              <a href="https://arxiv.org/abs/2603.22327" target="_blank" rel="noopener">Paper</a>
-              <a href="https://github.com/OxRML/AgentSLR" target="_blank" rel="noopener">Code</a>
-              <a href="https://huggingface.co/datasets/OxRML/AgentSLR" target="_blank" rel="noopener">Dataset</a>
-              <a href="https://oxrml.com/agent-slr" target="_blank" rel="noopener">Website</a>
-            </p>
-            <details class="pub-more">
-              <summary>Summary</summary>
-              <div class="pub-more-body">
-                <figure>
-                  <img src="assets/papers/agentslr.webp" width="1124" height="612" loading="lazy" alt="The six stages of the AgentSLR workflow: article search and retrieval, title and abstract screening, PDF-to-markdown conversion, full-text screening, data extraction and report generation.">
-                  <figcaption>AgentSLR runs each stage of a systematic review with an LLM and scores every stage separately.</figcaption>
-                </figure>
-                  <p>Systematic reviews are how science takes stock of what it knows: experts screen thousands of articles and extract the numbers that go on to shape public-health decisions. We wanted to know whether LLMs can do this work. With epidemiologists at Imperial College London, we built AgentSLR, an open harness that runs every stage of an epidemiological review with an LLM, alongside an expert-annotated dataset of 16,248 articles from reviews of WHO priority pathogens.</p>
-                  <p>No single frontier model won every stage. Structured data extraction was the clear bottleneck, with no model averaging above 0.67 field-level F1, and price was a poor guide to quality: GPT-5.2 cost over 96× more than gpt-oss-120b for slightly lower performance. With gpt-oss-120b, the full pipeline took about 20 hours, against roughly 385 hours for a manual review. Some closed models refused outright to process legitimate studies of these pathogens, which makes a strong case for open, locally reproducible tools. The models are useful, but not yet ready to run without expert supervision.</p>
-              </div>
-            </details>
+            <div class="pub-text">
+              <h3 class="pub-title"><a href="https://arxiv.org/abs/2603.22327" target="_blank" rel="noopener">Evaluating AI-based Scientific Knowledge Synthesis with Epidemiological Systematic Reviews</a></h3>
+              <p class="pub-authors"><span class="me">S. Padarha*</span>, R. O. Kearns*, T. Naidoo, L. Yang, Ł. Borchmann, P. Błaszczyk, C. Morgenstern, R. McCabe, S. Bhatia, P. H. Torr, J. Foerster, S. A. Hale, T. Rawson, A. Cori, E. Semenova, A. Mahdi</p>
+              <p class="pub-meta">
+                <span class="venue">NeurIPS 2026</span>
+                <a href="https://arxiv.org/abs/2603.22327" target="_blank" rel="noopener">Paper</a>
+                <a href="https://github.com/OxRML/AgentSLR" target="_blank" rel="noopener">Code</a>
+                <a href="https://huggingface.co/datasets/OxRML/AgentSLR" target="_blank" rel="noopener">Dataset</a>
+                <a href="https://oxrml.com/agent-slr" target="_blank" rel="noopener">Website</a>
+              </p>
+            </div>
+            <button class="pub-thumb" type="button" aria-expanded="false" aria-controls="tldr-agentslr" aria-label="Show summary">
+              <img src="assets/papers/agentslr.webp" width="480" height="360" loading="lazy" alt="">
+            </button>
+            <div class="pub-tldr" id="tldr-agentslr" hidden>
+              <p><strong>TL;DR</strong> We built AgentSLR, an open harness that runs each stage of an epidemiological systematic review with an LLM. We tested five frontier models against expert labels for 16,248 articles on WHO priority pathogens. No model led at every stage, and data extraction was the weakest step. The full pipeline took about 20 hours, against roughly 385 hours for a manual review.</p>
+              <p><strong>Key takeaway</strong> LLMs can cut review time sharply, but they are not yet reliable enough to work without expert supervision.</p>
+            </div>
           </li>
 
           <li class="pub">
-            <div class="pub-venue"><span class="badge">EMNLP 2026</span></div>
-            <h4 class="pub-title"><a href="https://arxiv.org/abs/2510.17431" target="_blank" rel="noopener">Agentic Reinforcement Learning for Search Misaligns Instruction-Tuning</a></h4>
-            <p class="pub-authors">Y. Yang, <span class="me">S. Padarha</span>, S. Ball, A. Lee, A. Mahdi</p>
-            <p class="pub-links">
-              <a href="https://arxiv.org/abs/2510.17431" target="_blank" rel="noopener">Paper</a>
-              <a href="https://github.com/Yushi-Y/RL-search-align" target="_blank" rel="noopener">Code</a>
-            </p>
-            <details class="pub-more">
-              <summary>Summary</summary>
-              <div class="pub-more-body">
-                <figure>
-                  <img src="assets/papers/agentic-rl-search.webp" width="1268" height="456" loading="lazy" alt="Diagnosis, mechanism and mitigation: RL-trained search models issue harmful searches under a search trigger, RL shifts query representations toward a harmful direction, and a projection penalty during RL restores safety.">
-                  <figcaption>Diagnosing, explaining and fixing the safety loss from agentic RL for search.</figcaption>
-                </figure>
-                  <p>Agentic reinforcement learning teaches instruction-tuned models to use tools such as search. We asked what this does to their safety. At first glance, RL-trained search models look fine: they inherit refusals by turning harmful requests into harmless queries. But a simple trigger that makes the model search before it can refuse breaks this, and the models go on to run chains of harmful searches. Search safety falls by up to 68.6% for Qwen and 69.6% for Llama relative to their instruction-tuned counterparts, across model families, sizes and RL algorithms.</p>
-                  <p>Looking inside the models, we found a linear &ldquo;search direction&rdquo; in the residual stream that controls query safety, and RL training steadily pushes queries towards its harmful end. Penalising movement along this direction during RL restores instruction-tuned levels of safety within 200 training steps, with no loss in QA accuracy, no extra data and about 0.3% extra compute.</p>
-              </div>
-            </details>
+            <div class="pub-text">
+              <h3 class="pub-title"><a href="https://arxiv.org/abs/2510.17431" target="_blank" rel="noopener">Agentic Reinforcement Learning for Search Misaligns Instruction-Tuning</a></h3>
+              <p class="pub-authors">Y. Yang, <span class="me">S. Padarha</span>, S. Ball, A. Lee, A. Mahdi</p>
+              <p class="pub-meta">
+                <span class="venue">EMNLP 2026</span>
+                <a href="https://arxiv.org/abs/2510.17431" target="_blank" rel="noopener">Paper</a>
+                <a href="https://github.com/Yushi-Y/RL-search-align" target="_blank" rel="noopener">Code</a>
+              </p>
+            </div>
+            <button class="pub-thumb" type="button" aria-expanded="false" aria-controls="tldr-rl-search" aria-label="Show summary">
+              <img src="assets/papers/agentic-rl-search.webp" width="480" height="360" loading="lazy" alt="">
+            </button>
+            <div class="pub-tldr" id="tldr-rl-search" hidden>
+              <p><strong>TL;DR</strong> Reinforcement learning (RL) that teaches models to use search tools weakens the safety they gained in instruction tuning. When prompted to search before they could refuse, RL-trained models ran chains of harmful searches. Search safety fell by up to 68.6 percent in Qwen models and 69.6 percent in Llama models. We traced the drop to one direction in the models' internal activations. Penalising that direction during training restored safety without hurting accuracy.</p>
+              <p><strong>Key takeaway</strong> Training models to use tools can quietly undo safety training, and a simple penalty during RL can fix it.</p>
+            </div>
           </li>
 
           <li class="pub">
-            <div class="pub-venue"><span class="badge">ICML 2026</span><span class="badge hl">Oral · Top 0.5%</span></div>
-            <h4 class="pub-title"><a href="https://arxiv.org/abs/2603.12180" target="_blank" rel="noopener">Strategic Navigation or Stochastic Search? How Agents and Humans Reason Over Document Collections</a></h4>
-            <p class="pub-authors">Ł. Borchmann, J. Van Landeghem, M. Turski, <span class="me">S. Padarha</span>, R. O. Kearns, A. Mahdi, et al.</p>
-            <p class="pub-links">
-              <a href="https://arxiv.org/abs/2603.12180" target="_blank" rel="noopener">Paper</a>
-              <a href="https://github.com/OxRML/MADQA" target="_blank" rel="noopener">Code</a>
-              <a href="https://huggingface.co/datasets/OxRML/MADQA" target="_blank" rel="noopener">Dataset</a>
-              <a href="https://huggingface.co/spaces/Snowflake/MADQA-Leaderboard" target="_blank" rel="noopener">Leaderboard</a>
-            </p>
-            <details class="pub-more">
-              <summary>Summary</summary>
-              <div class="pub-more-body">
-                <figure class="narrow">
-                  <img src="assets/papers/madqa.webp" width="976" height="731" loading="lazy" alt="Accuracy against step limit for humans, Gemini 3 Pro, Claude Sonnet 4.5 and GPT-5. Humans start far higher; agents catch up only with many more search steps.">
-                  <figcaption>Accuracy as the step budget grows. Humans answer 50% of questions correctly with their first query; Gemini 3 Pro starts at about 12% and catches up only by searching more.</figcaption>
-                </figure>
-                  <p>Multimodal agents are increasingly used to answer questions over large collections of real documents. But do they plan their way to an answer, or search until something sticks? We built MADQA, a benchmark of 2,250 human-written questions over 800 varied PDFs, designed using Classical Test Theory to separate stronger agents from weaker ones, together with an evaluation protocol that weighs accuracy against effort.</p>
-                  <p>The best agents match human searchers on raw accuracy, but they get different questions right and rely on brute-force search to make up for weak planning. They also stall almost 20% short of oracle performance, often stuck in unproductive loops. We released the dataset and harness to help push agents towards calibrated, efficient reasoning.</p>
-              </div>
-            </details>
+            <div class="pub-text">
+              <h3 class="pub-title"><a href="https://arxiv.org/abs/2603.12180" target="_blank" rel="noopener">Strategic Navigation or Stochastic Search? How Agents and Humans Reason Over Document Collections</a></h3>
+              <p class="pub-authors">Ł. Borchmann, J. Van Landeghem, M. Turski, <span class="me">S. Padarha</span>, R. O. Kearns, A. Mahdi, et al.</p>
+              <p class="pub-meta">
+                <span class="venue">ICML 2026 · Oral, top 0.5%</span>
+                <a href="https://arxiv.org/abs/2603.12180" target="_blank" rel="noopener">Paper</a>
+                <a href="https://github.com/OxRML/MADQA" target="_blank" rel="noopener">Code</a>
+                <a href="https://huggingface.co/datasets/OxRML/MADQA" target="_blank" rel="noopener">Dataset</a>
+                <a href="https://huggingface.co/spaces/Snowflake/MADQA-Leaderboard" target="_blank" rel="noopener">Leaderboard</a>
+              </p>
+            </div>
+            <button class="pub-thumb" type="button" aria-expanded="false" aria-controls="tldr-madqa" aria-label="Show summary">
+              <img src="assets/papers/madqa.webp" width="480" height="360" loading="lazy" alt="">
+            </button>
+            <div class="pub-tldr" id="tldr-madqa" hidden>
+              <p><strong>TL;DR</strong> We built MADQA, a benchmark of 2,250 human-written questions over 800 PDF documents, to test how agents and people search document collections. The best agents matched human accuracy. But they answered different questions correctly and relied on repeated searching rather than planning. They also fell almost 20 percent short of the best possible score, often stuck in loops.</p>
+              <p><strong>Key takeaway</strong> Agents reach human-level accuracy on document search through brute force, not strategy.</p>
+            </div>
           </li>
 
           <li class="pub">
-            <div class="pub-venue"><span class="badge">Preprint 2026</span></div>
-            <h4 class="pub-title"><a href="https://arxiv.org/abs/2606.14397" target="_blank" rel="noopener">Running the Gauntlet: Challenging Agentic Tasks</a></h4>
-            <p class="pub-authors">M. Vysotskyi*, R. Lin*, G. Biziel, …, <span class="me">S. Padarha</span>, …, A. Mahdi, V. Karpiv, P. Torr, A. Bibi</p>
-            <p class="pub-links">
-              <a href="https://arxiv.org/abs/2606.14397" target="_blank" rel="noopener">Paper</a>
-              <a href="https://github.com/gauntlet-benchmark/evaluation-harness" target="_blank" rel="noopener">Code</a>
-              <a href="https://gauntlet-landing-page.vercel.app/" target="_blank" rel="noopener">Website</a>
-            </p>
-            <details class="pub-more">
-              <summary>Summary</summary>
-              <div class="pub-more-body">
-                <figure>
-                  <img src="assets/papers/gauntlet.webp" width="1062" height="328" loading="lazy" alt="Screenshots of the five GauntletBench applications: Video Editor, Workflow Builder, 3D Modeller, Flight Analyser and Circuit Designer, each with an example task.">
-                  <figcaption>The five applications in GauntletBench, each with an example task.</figcaption>
-                </figure>
-                  <p>Most agent benchmarks are built on familiar apps such as shopping sites and booking forms, and frontier agents are close to saturating them. GauntletBench instead puts agents into five less familiar professional web apps (a video editor, a workflow builder, a 3D modeller, a flight analyser and a circuit designer), with 135 vision-heavy tasks that test temporal perception, graphical understanding and 3D reasoning.</p>
-                  <p>When we released it in June 2026, the best agent completed 28.2% of tasks, while non-expert humans completed over 80%. Three months later, GPT-6 Astra scored 83.0%, the first agent to beat the human baseline. It's a reminder of how quickly benchmarks go stale, and we're now working on a harder version.</p>
-              </div>
-            </details>
+            <div class="pub-text">
+              <h3 class="pub-title"><a href="https://arxiv.org/abs/2606.14397" target="_blank" rel="noopener">Running the Gauntlet: Challenging Agentic Tasks</a></h3>
+              <p class="pub-authors">M. Vysotskyi*, R. Lin*, G. Biziel, …, <span class="me">S. Padarha</span>, …, A. Mahdi, V. Karpiv, P. Torr, A. Bibi</p>
+              <p class="pub-meta">
+                <span class="venue">Preprint 2026</span>
+                <a href="https://arxiv.org/abs/2606.14397" target="_blank" rel="noopener">Paper</a>
+                <a href="https://github.com/gauntlet-benchmark/evaluation-harness" target="_blank" rel="noopener">Code</a>
+                <a href="https://gauntlet-landing-page.vercel.app/" target="_blank" rel="noopener">Website</a>
+              </p>
+            </div>
+            <button class="pub-thumb" type="button" aria-expanded="false" aria-controls="tldr-gauntlet" aria-label="Show summary">
+              <img src="assets/papers/gauntlet.webp" width="480" height="360" loading="lazy" alt="">
+            </button>
+            <div class="pub-tldr" id="tldr-gauntlet" hidden>
+              <p><strong>TL;DR</strong> GauntletBench tests agents on 135 visual tasks in five unfamiliar professional web apps, from a video editor to a circuit designer. At release in June 2026, the best agent completed 28.2 percent of tasks, while non-expert humans completed over 80 percent. Three months later, GPT-6 Astra scored 83.0 percent, the first agent to beat the human baseline.</p>
+              <p><strong>Key takeaway</strong> Agents are improving fast on unfamiliar tools, and benchmarks now go out of date within months.</p>
+            </div>
           </li>
 
           <li class="pub">
-            <div class="pub-venue"><span class="badge">NeurIPS 2025 Workshop</span></div>
-            <h4 class="pub-title"><a href="https://openreview.net/pdf/300209bf37f4e6baf904f7f7ac93d833e756edfc.pdf" target="_blank" rel="noopener">Evaluating LLM-as-a-Judge under Multilingual, Multimodal and Multi-domain Constraints</a></h4>
-            <p class="pub-authors"><span class="me">S. Padarha</span>, E. Semenova, B. Vidgen, A. Mahdi, S. A. Hale</p>
-            <p class="pub-links">
-              <a href="https://openreview.net/pdf/300209bf37f4e6baf904f7f7ac93d833e756edfc.pdf" target="_blank" rel="noopener">Paper</a>
-              <!-- Code repo is private for now. Once public, add:
-              <a href="https://github.com/shreyansh-2003/PolyVis-Multilingual-Multimodal" target="_blank" rel="noopener">Code</a> -->
-            </p>
-            <details class="pub-more">
-              <summary>Summary</summary>
-              <div class="pub-more-body">
-                <figure>
-                  <img src="assets/papers/polyvis.webp" width="1123" height="717" loading="lazy" alt="The PolyVis pipeline: preference datasets are machine-translated into 11 languages, filtered with quality metrics and combined into the benchmark, with an example safety item shown in English and Arabic.">
-                  <figcaption>How PolyVis is built, with a sample safety item translated from English to Arabic.</figcaption>
-                </figure>
-                  <p>LLMs are now routinely used as judges and reward models during post-training, but they had not been tested in settings that are both multilingual and multimodal. We built PolyVis, which extends vision-language preference data to 12 languages across three objectives: spotting hallucinations, judging reasoning and instruction following, and judging safety. We used it to evaluate four open-source judge models.</p>
-                  <p>How good a judge is depends on the combination of model, language and task. Hallucination detection was the easiest (up to 95.2% accuracy), while reasoning judgements hovered near chance. The model best at judging safety was the worst at spotting hallucinations, and some non-English languages matched or beat English. One-size-fits-all judge evaluations hide these differences.</p>
-              </div>
-            </details>
+            <div class="pub-text">
+              <h3 class="pub-title"><a href="https://openreview.net/pdf/300209bf37f4e6baf904f7f7ac93d833e756edfc.pdf" target="_blank" rel="noopener">Evaluating LLM-as-a-Judge under Multilingual, Multimodal and Multi-domain Constraints</a></h3>
+              <p class="pub-authors"><span class="me">S. Padarha</span>, E. Semenova, B. Vidgen, A. Mahdi, S. A. Hale</p>
+              <p class="pub-meta">
+                <span class="venue">NeurIPS 2025 Workshop</span>
+                <a href="https://openreview.net/pdf/300209bf37f4e6baf904f7f7ac93d833e756edfc.pdf" target="_blank" rel="noopener">Paper</a>
+                <!-- Code repo is private for now. Once public, add:
+                <a href="https://github.com/shreyansh-2003/PolyVis-Multilingual-Multimodal" target="_blank" rel="noopener">Code</a> -->
+              </p>
+            </div>
+            <button class="pub-thumb" type="button" aria-expanded="false" aria-controls="tldr-polyvis" aria-label="Show summary">
+              <img src="assets/papers/polyvis.webp" width="480" height="360" loading="lazy" alt="">
+            </button>
+            <div class="pub-tldr" id="tldr-polyvis" hidden>
+              <p><strong>TL;DR</strong> LLMs are widely used as judges during post-training, but had not been tested in settings that are both multilingual and multimodal. We built PolyVis, a benchmark in 12 languages covering hallucination detection, reasoning and safety, and tested four open-source judge models. Accuracy reached 95.2 percent on hallucination detection but stayed near chance on reasoning.</p>
+              <p><strong>Key takeaway</strong> No judge model is best everywhere. Performance depends on the mix of model, language and task, so evaluations should report each separately.</p>
+            </div>
           </li>
 
           <li class="pub">
-            <div class="pub-venue"><span class="badge">J. Oral Med. Oral Surg. 2025</span></div>
-            <h4 class="pub-title"><a href="https://doi.org/10.1051/mbcb/2025008" target="_blank" rel="noopener">Fully Automated Deep Learning Framework for Detection and Classification of Impacted Mandibular Third Molars in Panoramic Radiographs</a></h4>
-            <p class="pub-authors">S. K. Veerabhadrappa, S. Vengusamy, <span class="me">S. Padarha</span>, K. Iyer, S. Yadav</p>
-            <p class="pub-links">
-              <a href="https://doi.org/10.1051/mbcb/2025008" target="_blank" rel="noopener">Paper</a>
-            </p>
-            <details class="pub-more">
-              <summary>Summary</summary>
-              <div class="pub-more-body">
-                <figure>
-                  <img src="assets/papers/impacted-molars.webp" width="1337" height="601" loading="lazy" alt="Pipeline diagram: panoramic X-rays are pre-processed, a VGG16 model detects third molars, YOLOv7 extracts the region of interest, and a ResNet50 model classifies the type of impaction.">
-                  <figcaption>The pipeline, from raw panoramic X-ray to Winter's classification.</figcaption>
-                </figure>
-                  <p>Impacted wisdom teeth are one of the most common reasons for minor oral surgery, and planning an extraction depends on reading the tooth's position from a panoramic X-ray. Working with clinicians in Malaysia and the Philippines, we built a fully automated pipeline for this: a VGG16-based model detects the mandibular third molar, YOLOv7 locates it, and a ResNet50 model classifies how it is impacted using Winter's classification.</p>
-                  <p>Trained on around 1,800 radiographs with annotations validated by an oral radiologist, the detection model reached 93.5% test accuracy and the classifier 92.2% (AUC 98.3). The system is now used by dental schools.</p>
-              </div>
-            </details>
+            <div class="pub-text">
+              <h3 class="pub-title"><a href="https://doi.org/10.1051/mbcb/2025008" target="_blank" rel="noopener">Fully Automated Deep Learning Framework for Detection and Classification of Impacted Mandibular Third Molars in Panoramic Radiographs</a></h3>
+              <p class="pub-authors">S. K. Veerabhadrappa, S. Vengusamy, <span class="me">S. Padarha</span>, K. Iyer, S. Yadav</p>
+              <p class="pub-meta">
+                <span class="venue">Journal of Oral Medicine and Oral Surgery 2025</span>
+                <a href="https://doi.org/10.1051/mbcb/2025008" target="_blank" rel="noopener">Paper</a>
+              </p>
+            </div>
+            <button class="pub-thumb" type="button" aria-expanded="false" aria-controls="tldr-molars" aria-label="Show summary">
+              <img src="assets/papers/impacted-molars.webp" width="480" height="360" loading="lazy" alt="">
+            </button>
+            <div class="pub-tldr" id="tldr-molars" hidden>
+              <p><strong>TL;DR</strong> We built a fully automated system that finds impacted wisdom teeth in panoramic X-rays and classifies their position. It combines VGG16 for detection, YOLOv7 to locate the tooth and ResNet50 for classification. Working with clinicians in Malaysia and the Philippines, we trained it on about 1,800 X-rays checked by an oral radiologist. It detected the teeth with 93.5 percent accuracy and classified them with 92.2 percent accuracy.</p>
+              <p><strong>Key takeaway</strong> Deep learning can reliably automate a routine step in planning wisdom tooth surgery. Dental schools now use the system.</p>
+            </div>
           </li>
 
         </ol>
@@ -304,35 +270,35 @@
             <span class="when">Sep 2025 – Sep 2026</span>
             <div class="what">
               <strong>Research Assistant</strong> · <span class="org">Oxford Internet Institute, University of Oxford</span>
-              <p>With Prof. Scott Hale and Prof. Adam Mahdi on UKRI (EPSRC)-funded research into how news outlets across the British political spectrum discuss migration, alongside LLM evaluation projects on safety, multimodality and agents.</p>
+              <p>Worked with Professor Scott Hale and Professor Adam Mahdi on an EPSRC-funded study of how British news outlets cover migration. Also ran LLM evaluations on safety, multimodality and agents.</p>
             </div>
           </li>
           <li>
             <span class="when">May – Jul 2025</span>
             <div class="what">
               <strong>Research Assistant (part-time)</strong> · <span class="org">Oxford Internet Institute, University of Oxford</span>
-              <p>With Dr Fabian Braesemann on the Science of Startups Initiative, building the technical stack for a new website on founder personalities.</p>
+              <p>Worked with Dr Fabian Braesemann on the Science of Startups Initiative. Built the technical stack for a website on founder personalities.</p>
             </div>
           </li>
           <li>
             <span class="when">Jan – May 2024</span>
             <div class="what">
               <strong>Researcher</strong> · <span class="org">Asia Pacific University of Technology &amp; Innovation, Kuala Lumpur</span>
-              <p>With Dr V. Sivakumar and clinicians in Malaysia and the Philippines, developed a deep learning framework that finds impacted wisdom teeth and related pathologies in panoramic X-rays.</p>
+              <p>Worked with Dr V. Sivakumar and clinicians in Malaysia and the Philippines. Built a deep learning system that finds impacted wisdom teeth and related conditions in dental X-rays.</p>
             </div>
           </li>
           <li>
             <span class="when">Jun – Sep 2023</span>
             <div class="what">
               <strong>AI Engineer</strong> · <span class="org">Anantadi Tech, Pune</span>
-              <p>Led a team of interns building an AI-powered tool for in-video advertising and product placement, developing computer vision models for object detection, segmentation and tracking.</p>
+              <p>Led a team of interns building an AI tool for in-video advertising and product placement. Built computer vision models for object detection, segmentation and tracking.</p>
             </div>
           </li>
           <li>
             <span class="when">Jul – Aug 2022</span>
             <div class="what">
               <strong>Automation Engineer</strong> · <span class="org">Elecsol Technology, Raipur</span>
-              <p>Worked on industrial automation systems (PLCs and drives) and built an IoT dashboard for real-time monitoring of legacy equipment.</p>
+              <p>Worked on industrial automation, including PLCs and drives. Built an IoT dashboard to monitor older equipment in real time.</p>
             </div>
           </li>
         </ol>
@@ -345,9 +311,9 @@
           <a href="assets/Shreyansh_Padarha_CV.pdf" download="Shreyansh_Padarha_CV.pdf">Download CV (PDF)</a>
         </div>
         <p>
-          I came to AI research through data science, and through applied machine learning projects in healthcare,
-          agriculture and industry. Each one taught me that a technical result is only useful if the people relying on
-          it can trust it, and that idea still drives my research.
+          I came to AI research through data science. My early projects applied machine learning to healthcare,
+          agriculture and industry. Each taught me the same thing: a result is only useful if people can trust it.
+          That idea still drives my research.
         </p>
 
         <h3>Education</h3>
@@ -356,21 +322,21 @@
             <span class="when">2026 – present</span>
             <div class="what">
               <strong>DPhil</strong> · <span class="org">University of Oxford</span>
-              <p>Oxford Internet Institute and Wadham College. LLM evaluations and post-training for AI in science.</p>
+              <p>Oxford Internet Institute and Wadham College. Research on LLM evaluations and post-training for science.</p>
             </div>
           </li>
           <li>
             <span class="when">2024 – 2025</span>
             <div class="what">
               <strong>MSc Social Data Science</strong> · <span class="org">University of Oxford</span>
-              <p>Distinction (73%, top 5% of the cohort).</p>
+              <p>Distinction (73 percent). Top 5 percent of the cohort.</p>
             </div>
           </li>
           <li>
             <span class="when">2021 – 2024</span>
             <div class="what">
               <strong>BSc Data Science</strong> · <span class="org">CHRIST University, India</span>
-              <p>GPA 3.93/4.0. Ranked first in my year and awarded the department gold medal.</p>
+              <p>GPA 3.93/4.0. Ranked first in my year. Awarded the department gold medal.</p>
             </div>
           </li>
         </ol>
@@ -381,21 +347,14 @@
             <span class="when">2026 – present</span>
             <div class="what">
               <strong>ESRC Grand Union Doctoral Training Partnership</strong>
-              <p>Fully funded DPhil studentship from the Economic and Social Research Council.</p>
+              <p>Full DPhil studentship from the Economic and Social Research Council.</p>
             </div>
           </li>
           <li>
             <span class="when">2025 – present</span>
             <div class="what">
               <strong>EPSRC (UKRI) and Dieter Schwarz Foundation</strong>
-              <p>Grant funding supporting my research at the Oxford Internet Institute.</p>
-            </div>
-          </li>
-          <li>
-            <span class="when">2022 – 2024</span>
-            <div class="what">
-              <strong>Merit and Extra-Curricular Scholarships</strong> · <span class="org">CHRIST University</span>
-              <p>Awarded in both 2022–23 and 2023–24.</p>
+              <p>Grants funding my research at the Oxford Internet Institute.</p>
             </div>
           </li>
         </ol>
@@ -406,36 +365,28 @@
             <span class="when">2026 – 2027</span>
             <div class="what">
               <strong>Teaching Assistant</strong> · <span class="org">Oxford Internet Institute, University of Oxford</span>
-              <p>Applied Machine Learning with LLMs. Designed and ran tutorials for a postgraduate cohort of 40 in Hilary Term 2026, and returning in Hilary Term 2027.</p>
+              <p>Applied Machine Learning with LLMs, a postgraduate course. Designed and led tutorials for 40 students in Hilary Term 2026. Returning in Hilary Term 2027.</p>
             </div>
           </li>
           <li>
             <span class="when">2025</span>
             <div class="what">
               <strong>Tutor</strong> · <span class="org">Stanford University (Stanford House, Oxford)</span>
-              <p>Taught LLM pre-training and post-training to Stanford computer science undergraduates on their semester abroad in Oxford.</p>
+              <p>Taught LLM pre-training and post-training to Stanford computer science undergraduates studying in Oxford.</p>
             </div>
           </li>
         </ol>
-
-        <h3>Outside research</h3>
-        <p>
-          I enjoy teaching and mentoring, which often teaches me as much as it does my students. I've also spent a lot
-          of time in student bodies: I was President of the Data Science Association and a member of the University
-          Student Council at CHRIST, and a cohort representative during my MSc. In 2023, I was Technical Lead with the
-          India Meteorological Department (IMD) on the National Framework for Climate Services (NFCS-India).
-        </p>
-        <!-- Add hobbies / interests outside work here, e.g. <p>When I'm not working, I ...</p> -->
-        <p>
-          I'm always happy to talk about research, so feel free to
-          <a href="mailto:shreyansh.padarha@oii.ox.ac.uk">get in touch</a>.
-        </p>
       </section>
 
     </main>
 
     <footer class="site-footer">
-      <p>Shreyansh Padarha · shreyansh.padarha [at] oii.ox.ac.uk</p>
+      <p class="footer-name" lang="hi">श्रेयांश पदरहा</p>
+      <p class="footer-email">
+        <a href="mailto:shreyansh.padarha@oii.ox.ac.uk">shreyansh.padarha@oii.ox.ac.uk</a>
+        <span aria-hidden="true">·</span>
+        <a href="mailto:shreyansh.padarha@oii.ox.ac.uk" lang="hi">श्रेयांश.पदरहा@oii.ox.ac.uk</a>
+      </p>
     </footer>
   </div>
 </body>

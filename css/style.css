@@ -8,18 +8,16 @@
   --bg: #ffffff;
   --fg: #1d2025;
   --muted: #5d6570;
+  --link-row: #3e444c;
   --rule: #e7e9ec;
   --panel: #f6f7f9;
   --accent: #1f4e8c;
   --accent-hover: #0f2f5c;
-  --badge-bg: #edf1f6;
-  --badge-fg: #2c3d55;
-  --hl-bg: #fcefd9;
-  --hl-fg: #7f4c00;
+  --venue: #8c2f39;
 
   --maxw: 52rem;
   --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
-    Arial, "Noto Sans", sans-serif;
+    Arial, "Noto Sans", "Noto Sans Devanagari", "Kohinoor Devanagari", "Nirmala UI", sans-serif;
 
   color-scheme: light dark;
 }
@@ -29,14 +27,12 @@
     --bg: #111317;
     --fg: #e5e7eb;
     --muted: #a0a8b3;
+    --link-row: #c3c9d1;
     --rule: #262b33;
     --panel: #181b21;
     --accent: #8ab4f8;
     --accent-hover: #b4cffb;
-    --badge-bg: #1e2531;
-    --badge-fg: #c7d3e6;
-    --hl-bg: #3b2d12;
-    --hl-fg: #f2c879;
+    --venue: #f09aa3;
   }
 }
 
@@ -81,7 +77,7 @@ a:hover {
 }
 
 a:focus-visible,
-summary:focus-visible {
+button:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
   border-radius: 3px;
@@ -118,10 +114,7 @@ p {
 
 .site-nav {
   display: flex;
-  flex-wrap: wrap;
   justify-content: flex-end;
-  align-items: baseline;
-  gap: 0.5rem 1.5rem;
   padding: 1.5rem 0 0.5rem;
 }
 
@@ -145,17 +138,31 @@ p {
 
 /* ---------- Intro ---------- */
 
+/* flow-root contains the floated photo so text wraps around and under it */
 .hero {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 13rem;
-  gap: 1.5rem 2.5rem;
-  align-items: start;
+  display: flow-root;
   padding-top: 2rem;
+}
+
+.hero-photo {
+  float: right;
+  width: 14.5rem;
+  margin: 0.4rem 0 1rem 2.25rem;
+}
+
+.hero-photo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 5 / 6;
+  object-fit: cover;
+  border-radius: 12px;
 }
 
 .hero h1 {
   font-size: 2.15rem;
   font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
   margin: 0;
 }
 
@@ -165,56 +172,60 @@ p {
   margin: 0.3rem 0 1rem;
 }
 
+/* Profile links: grey, medium weight and slightly tracked so they read as
+   navigation rather than body text. All icons are solid glyphs. */
 .social {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.35rem 1.1rem;
+  gap: 0.35rem 1.2rem;
   list-style: none;
   margin: 0 0 1.5rem;
   padding: 0;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
 }
 
 .social a {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  color: var(--fg);
+  color: var(--link-row);
 }
 
 .social a:hover {
-  color: var(--accent);
+  color: var(--fg);
   text-decoration: none;
 }
 
 .social svg {
-  width: 1em;
-  height: 1em;
+  width: 1.05em;
+  height: 1.05em;
   flex: none;
 }
 
-.hero-photo {
-  margin: 0.4rem 0 0;
+.interests {
+  margin: 0 0 1rem;
+  padding-left: 1.2rem;
 }
 
-.hero-photo img {
-  display: block;
-  width: 100%;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
-  border-radius: 12px;
+.interests li {
+  margin-bottom: 0.5rem;
+}
+
+.interests li::marker {
+  color: var(--muted);
 }
 
 @media (max-width: 640px) {
   .hero {
-    grid-template-columns: 1fr;
     padding-top: 1.25rem;
   }
 
   .hero-photo {
-    order: -1;
-    width: 8.5rem;
-    margin: 0;
+    float: none;
+    width: 9rem;
+    margin: 0 0 1rem;
   }
 
   .hero h1 {
@@ -231,22 +242,18 @@ section {
   scroll-margin-top: 1rem;
 }
 
-h1,
-h2,
-h3 {
-  line-height: 1.25;
-  letter-spacing: -0.01em;
-}
-
 h2 {
   font-size: 1.4rem;
   font-weight: 650;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
   margin: 0 0 1rem;
 }
 
 h3 {
   font-size: 1.05rem;
   font-weight: 650;
+  line-height: 1.25;
   margin: 2rem 0 0.75rem;
 }
 
@@ -272,20 +279,7 @@ h3 {
   font-size: 0.9rem;
 }
 
-/* ---------- Research ---------- */
-
-.interests {
-  margin: 0 0 1rem;
-  padding-left: 1.2rem;
-}
-
-.interests li {
-  margin-bottom: 0.6rem;
-}
-
-.interests li::marker {
-  color: var(--muted);
-}
+/* ---------- Publications ---------- */
 
 .pubs {
   list-style: none;
@@ -293,8 +287,13 @@ h3 {
   padding: 0;
 }
 
+/* Text on the left, clickable thumbnail on the right, TL;DR panel below both */
 .pub {
-  padding: 1.15rem 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 9.5rem;
+  gap: 0 1.5rem;
+  align-items: start;
+  padding: 1.25rem 0;
   border-bottom: 1px solid var(--rule);
 }
 
@@ -306,36 +305,11 @@ h3 {
   border-bottom: 0;
 }
 
-.pub-venue {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.35rem;
-  margin-bottom: 0.4rem;
-}
-
-.badge {
-  display: inline-block;
-  padding: 0.1rem 0.55rem;
-  border-radius: 999px;
-  background: var(--badge-bg);
-  color: var(--badge-fg);
-  font-size: 0.75rem;
-  font-weight: 600;
-  line-height: 1.6;
-  letter-spacing: 0.01em;
-}
-
-.badge.hl {
-  background: var(--hl-bg);
-  color: var(--hl-fg);
-}
-
 .pub-title {
   margin: 0;
   font-size: 1.02rem;
   font-weight: 600;
   line-height: 1.4;
-  letter-spacing: 0;
 }
 
 .pub-title a {
@@ -358,82 +332,96 @@ h3 {
   font-weight: 600;
 }
 
-.pub-links {
+.pub-meta {
   display: flex;
   flex-wrap: wrap;
+  align-items: baseline;
   gap: 0.2rem 1rem;
-  margin: 0.4rem 0 0;
+  margin: 0.45rem 0 0;
   font-size: 0.9rem;
 }
 
-/* Click-to-expand paper summaries (native <details>, no JS) */
-
-.pub-more {
-  margin-top: 0.3rem;
-  font-size: 0.9rem;
+.venue {
+  color: var(--venue);
+  font-weight: 650;
 }
 
-.pub-more > summary {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  color: var(--muted);
-  cursor: pointer;
-  list-style: none;
-  user-select: none;
-}
-
-.pub-more > summary::-webkit-details-marker {
-  display: none;
-}
-
-.pub-more > summary::before {
-  content: "";
-  width: 0.42em;
-  height: 0.42em;
-  border-right: 1.5px solid currentColor;
-  border-bottom: 1.5px solid currentColor;
-  transform: rotate(-45deg);
-  transition: transform 0.15s ease;
-}
-
-.pub-more[open] > summary::before {
-  transform: rotate(45deg);
-}
-
-.pub-more > summary:hover {
-  color: var(--fg);
-}
-
-.pub-more-body {
-  margin-top: 0.75rem;
-  padding: 1.1rem 1.25rem 0.2rem;
-  background: var(--panel);
-  border-radius: 10px;
-  font-size: 0.97rem;
-}
-
-.pub-more figure {
-  margin: 0 0 1rem;
-}
-
-.pub-more figure img {
+.pub-thumb {
   display: block;
   width: 100%;
-  background: #fff;
+  margin-top: 0.2rem;
+  padding: 0;
+  border: 1px solid var(--rule);
   border-radius: 6px;
+  background: #fff;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
 }
 
-.pub-more figure.narrow img {
-  max-width: 30rem;
-  margin: 0 auto;
+.pub-thumb img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
 }
 
-.pub-more figcaption {
-  margin-top: 0.5rem;
-  color: var(--muted);
+/* "TL;DR" appears over the thumbnail on hover/focus; "Close" once it is open */
+.pub-thumb::after {
+  content: "TL;DR";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(17, 19, 23, 0.55);
+  color: #fff;
   font-size: 0.85rem;
-  line-height: 1.5;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.pub-thumb:hover::after,
+.pub-thumb:focus-visible::after {
+  opacity: 1;
+}
+
+.pub-thumb[aria-expanded="true"] {
+  border-color: var(--muted);
+}
+
+.pub-thumb[aria-expanded="true"]::after {
+  content: "Close";
+}
+
+.pub-tldr {
+  grid-column: 1 / -1;
+  margin-top: 0.9rem;
+  padding: 0.9rem 1.1rem 0.1rem;
+  background: var(--panel);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.pub-tldr p {
+  margin-bottom: 0.8rem;
+}
+
+.pub-tldr strong {
+  display: block;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+@media (max-width: 560px) {
+  .pub {
+    grid-template-columns: minmax(0, 1fr) 5.75rem;
+    gap: 0 0.9rem;
+  }
 }
 
 /* ---------- Dated lists (experience, education, awards, teaching) ---------- */
@@ -492,4 +480,25 @@ h3 {
 
 .site-footer p {
   margin: 0;
+}
+
+.site-footer .footer-name {
+  color: var(--fg);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+
+.footer-email {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.1rem 0.6rem;
+}
+
+.footer-email a {
+  color: var(--muted);
+}
+
+.footer-email a:hover {
+  color: var(--fg);
 }
