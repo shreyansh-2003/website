@@ -419,6 +419,50 @@ h3 {
   line-height: 1.5;
 }
 
+/* ---------- Dated lists (experience, education, awards, teaching) ---------- */
+
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.timeline > li {
+  display: grid;
+  grid-template-columns: 10rem minmax(0, 1fr);
+  align-items: baseline;
+  gap: 0 1.25rem;
+  padding: 0.55rem 0;
+}
+
+.timeline .when {
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.timeline .org {
+  color: var(--muted);
+}
+
+.timeline p {
+  margin: 0.15rem 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+@media (max-width: 560px) {
+  .timeline > li {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline .when {
+    font-size: 0.85rem;
+  }
+}
+
 /* ---------- Footer ---------- */
 
 .site-footer {
