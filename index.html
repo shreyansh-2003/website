@@ -20,7 +20,6 @@
   <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
   <link rel="stylesheet" href="css/style.css">
-  <script src="js/site.js" defer></script>
 
   <script type="application/ld+json">
   {
@@ -133,16 +132,14 @@
         <p class="note">
           Selected publications. * Equal contribution. Full list on
           <a href="https://scholar.google.com/citations?user=b0aneOsAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>.
-          Click a figure for a short summary.
         </p>
 
         <!--
           To add a paper: copy one <li class="pub"> block and keep the list newest first.
           - Mark yourself in the author list with <span class="me">S. Padarha</span>.
           - The venue goes in <span class="venue"> on the links line.
-          - Images: a 4:3 thumbnail (NAME-thumb.webp, 480 × 360) and the full figure (NAME.webp) in assets/papers/.
-          - The thumbnail button's data-dialog must match the id of the <dialog> below it.
-          - TL;DR: at most two sentences. Key takeaway: one.
+          - Figure: one whole figure from the paper in assets/papers/NAME.webp (≤ 1100 px wide).
+            It is shown at its natural shape, no cropping.
         -->
         <ol class="pubs">
 
@@ -158,18 +155,9 @@
                 <a href="https://oxrml.com/agent-slr" target="_blank" rel="noopener">Website</a>
               </p>
             </div>
-            <button class="pub-thumb" type="button" data-dialog="tldr-agentslr" aria-label="Show summary">
-              <img src="assets/papers/agentslr-thumb.webp" width="480" height="360" loading="lazy" alt="">
-            </button>
-            <dialog class="pub-dialog" id="tldr-agentslr" aria-labelledby="tldr-agentslr-title">
-              <div class="dialog-body">
-                <button class="dialog-close" type="button" aria-label="Close">&times;</button>
-                <p class="dialog-title" id="tldr-agentslr-title">Evaluating AI-based Scientific Knowledge Synthesis with Epidemiological Systematic Reviews</p>
-                <img src="assets/papers/agentslr.webp" width="1124" height="612" loading="lazy" alt="The six stages of the AgentSLR workflow: article search and retrieval, title and abstract screening, PDF-to-markdown conversion, full-text screening, data extraction and report generation.">
-                <p><span class="label">TL;DR</span> Five frontier LLMs take on the full systematic-review pipeline for WHO priority pathogens, checked against expert labels on 16,248 articles. The pipeline finishes in about 20 hours against roughly 385 for a manual review, but no model wins every stage and data extraction stays the weak link.</p>
-                <p><span class="label">Key takeaway</span> LLMs can compress weeks of evidence synthesis into a day, but not yet without an expert in the loop.</p>
-              </div>
-            </dialog>
+            <figure class="pub-fig">
+              <img src="assets/papers/agentslr.webp" width="680" height="692" loading="lazy" alt="Bar chart of systematic review completion time: about 385 hours for humans against about 20 hours for AgentSLR.">
+            </figure>
           </li>
 
           <li class="pub">
@@ -182,18 +170,9 @@
                 <a href="https://github.com/Yushi-Y/RL-search-align" target="_blank" rel="noopener">Code</a>
               </p>
             </div>
-            <button class="pub-thumb" type="button" data-dialog="tldr-rl-search" aria-label="Show summary">
-              <img src="assets/papers/agentic-rl-search-thumb.webp" width="480" height="360" loading="lazy" alt="">
-            </button>
-            <dialog class="pub-dialog" id="tldr-rl-search" aria-labelledby="tldr-rl-search-title">
-              <div class="dialog-body">
-                <button class="dialog-close" type="button" aria-label="Close">&times;</button>
-                <p class="dialog-title" id="tldr-rl-search-title">Agentic Reinforcement Learning for Search Misaligns Instruction-Tuning</p>
-                <img src="assets/papers/agentic-rl-search.webp" width="1268" height="456" loading="lazy" alt="Diagnosis, mechanism and mitigation: RL-trained search models issue harmful searches under a search trigger, RL shifts query representations toward a harmful direction, and a projection penalty during RL restores safety.">
-                <p><span class="label">TL;DR</span> Train an instruction-tuned model to search with reinforcement learning and its refusals turn brittle: nudge it to search first and it chains harmful queries, cutting search safety by more than two-thirds. The damage traces to one direction inside the model, and penalising it during training restores safety at no cost to accuracy.</p>
-                <p><span class="label">Key takeaway</span> Teaching a model to use tools can quietly undo its safety training, but the fix is cheap.</p>
-              </div>
-            </dialog>
+            <figure class="pub-fig">
+              <img src="assets/papers/agentic-rl-search.webp" width="1100" height="394" loading="lazy" alt="Diagnosis, mechanism and mitigation: RL-trained search models issue harmful searches under a search trigger, RL shifts their queries toward a harmful direction, and a penalty during RL restores safety.">
+            </figure>
           </li>
 
           <li class="pub">
@@ -208,18 +187,9 @@
                 <a href="https://huggingface.co/spaces/Snowflake/MADQA-Leaderboard" target="_blank" rel="noopener">Leaderboard</a>
               </p>
             </div>
-            <button class="pub-thumb" type="button" data-dialog="tldr-madqa" aria-label="Show summary">
-              <img src="assets/papers/madqa-thumb.webp" width="480" height="360" loading="lazy" alt="">
-            </button>
-            <dialog class="pub-dialog" id="tldr-madqa" aria-labelledby="tldr-madqa-title">
-              <div class="dialog-body">
-                <button class="dialog-close" type="button" aria-label="Close">&times;</button>
-                <p class="dialog-title" id="tldr-madqa-title">Strategic Navigation or Stochastic Search? How Agents and Humans Reason Over Document Collections</p>
-                <img src="assets/papers/madqa.webp" width="976" height="731" loading="lazy" alt="Accuracy against step limit for humans, Gemini 3 Pro, Claude Sonnet 4.5 and GPT-5. Humans start far higher; agents catch up only with many more search steps.">
-                <p><span class="label">TL;DR</span> The best AI agents now match humans at answering questions across 800 real PDFs. But they get there by brute-force searching rather than planning, solve different questions from people and stall almost 20 percent short of the best possible score.</p>
-                <p><span class="label">Key takeaway</span> Matching human accuracy is not the same as reasoning like a human.</p>
-              </div>
-            </dialog>
+            <figure class="pub-fig">
+              <img src="assets/papers/madqa.webp" width="905" height="674" loading="lazy" alt="Accuracy against step limit for humans, Gemini 3 Pro, Claude Sonnet 4.5 and GPT-5. Humans start far higher; agents catch up only with more search steps.">
+            </figure>
           </li>
 
           <li class="pub">
@@ -232,18 +202,9 @@
                 <a href="https://gauntlet-landing-page.vercel.app/" target="_blank" rel="noopener">Website</a>
               </p>
             </div>
-            <button class="pub-thumb" type="button" data-dialog="tldr-gauntlet" aria-label="Show summary">
-              <img src="assets/papers/gauntlet-thumb.webp" width="480" height="360" loading="lazy" alt="">
-            </button>
-            <dialog class="pub-dialog" id="tldr-gauntlet" aria-labelledby="tldr-gauntlet-title">
-              <div class="dialog-body">
-                <button class="dialog-close" type="button" aria-label="Close">&times;</button>
-                <p class="dialog-title" id="tldr-gauntlet-title">Running the Gauntlet: Challenging Agentic Tasks</p>
-                <img src="assets/papers/gauntlet.webp" width="1062" height="328" loading="lazy" alt="Screenshots of the five GauntletBench applications: Video Editor, Workflow Builder, 3D Modeller, Flight Analyser and Circuit Designer, each with an example task.">
-                <p><span class="label">TL;DR</span> Frontier agents were dropped into five unfamiliar professional apps, from a video editor to a circuit designer. At launch the best one solved 28.2 percent of tasks against over 80 percent for non-expert humans; three months later, GPT-6 Astra hit 83.0 percent.</p>
-                <p><span class="label">Key takeaway</span> Agents are learning unfamiliar tools fast, and benchmarks now age in months, not years.</p>
-              </div>
-            </dialog>
+            <figure class="pub-fig">
+              <img src="assets/papers/gauntlet.webp" width="1100" height="332" loading="lazy" alt="The five GauntletBench applications (Video Editor, Workflow Builder, 3D Modeller, Flight Analyser and Circuit Designer), each with an example task.">
+            </figure>
           </li>
 
           <li class="pub">
@@ -257,18 +218,9 @@
                 <a href="https://github.com/shreyansh-2003/PolyVis-Multilingual-Multimodal" target="_blank" rel="noopener">Code</a> -->
               </p>
             </div>
-            <button class="pub-thumb" type="button" data-dialog="tldr-polyvis" aria-label="Show summary">
-              <img src="assets/papers/polyvis-thumb.webp" width="480" height="360" loading="lazy" alt="">
-            </button>
-            <dialog class="pub-dialog" id="tldr-polyvis" aria-labelledby="tldr-polyvis-title">
-              <div class="dialog-body">
-                <button class="dialog-close" type="button" aria-label="Close">&times;</button>
-                <p class="dialog-title" id="tldr-polyvis-title">Evaluating LLM-as-a-Judge under Multilingual, Multimodal and Multi-domain Constraints</p>
-                <img src="assets/papers/polyvis.webp" width="1123" height="717" loading="lazy" alt="The PolyVis pipeline: preference datasets are machine-translated into 11 languages, filtered with quality metrics and combined into the benchmark, with an example safety item shown in English and Arabic.">
-                <p><span class="label">TL;DR</span> LLM judges, which grade other models during post-training, were tested across 12 languages on image-and-text tasks. They catch hallucinations with up to 95.2 percent accuracy but judge reasoning at close to a coin toss, and the best judge changes with the language and the task.</p>
-                <p><span class="label">Key takeaway</span> There is no universally good judge, so judges should be evaluated by language and task.</p>
-              </div>
-            </dialog>
+            <figure class="pub-fig">
+              <img src="assets/papers/polyvis.webp" width="1100" height="905" loading="lazy" alt="Four panels comparing each judge model's accuracy in English and in other languages across three tasks.">
+            </figure>
           </li>
 
           <li class="pub">
@@ -280,18 +232,9 @@
                 <a href="https://doi.org/10.1051/mbcb/2025008" target="_blank" rel="noopener">Paper</a>
               </p>
             </div>
-            <button class="pub-thumb" type="button" data-dialog="tldr-molars" aria-label="Show summary">
-              <img src="assets/papers/impacted-molars-thumb.webp" width="480" height="360" loading="lazy" alt="">
-            </button>
-            <dialog class="pub-dialog" id="tldr-molars" aria-labelledby="tldr-molars-title">
-              <div class="dialog-body">
-                <button class="dialog-close" type="button" aria-label="Close">&times;</button>
-                <p class="dialog-title" id="tldr-molars-title">Fully Automated Deep Learning Framework for Detection and Classification of Impacted Mandibular Third Molars in Panoramic Radiographs</p>
-                <img src="assets/papers/impacted-molars.webp" width="1337" height="601" loading="lazy" alt="Pipeline diagram: panoramic X-rays are pre-processed, a VGG16 model detects third molars, YOLOv7 extracts the region of interest, and a ResNet50 model classifies the type of impaction.">
-                <p><span class="label">TL;DR</span> A three-stage deep learning pipeline reads panoramic X-rays, finds impacted wisdom teeth with 93.5 percent accuracy and classifies their angle with 92.2 percent accuracy. Built with clinicians in Malaysia and the Philippines, it is now used by dental schools.</p>
-                <p><span class="label">Key takeaway</span> A routine, error-prone step in planning wisdom-tooth surgery can be automated reliably.</p>
-              </div>
-            </dialog>
+            <figure class="pub-fig">
+              <img src="assets/papers/impacted-molars.webp" width="1000" height="1058" loading="lazy" alt="Panoramic X-ray before and after processing, with the detected wisdom teeth labelled vertical and distoangular.">
+            </figure>
           </li>
 
         </ol>
