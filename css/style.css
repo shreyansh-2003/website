@@ -264,7 +264,10 @@ p {
   width: 100%;
   aspect-ratio: 5 / 6;
   object-fit: cover;
-  border-radius: 4px;
+  /* Squircle corners (smooth, continuous curves) via an SVG mask drawn in the photo's
+     5:6 shape, so the rounding scales with the photo. Path: M10 0H90C98.8 0 100 1.2 100 10V110C100 118.8 98.8 120 90 120H10C1.2 120 0 118.8 0 110V10C0 1.2 1.2 0 10 0Z */
+  -webkit-mask: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20100%20120%27%20preserveAspectRatio%3D%27none%27%3E%3Cpath%20d%3D%27M10%200H90C98.8%200%20100%201.2%20100%2010V110C100%20118.8%2098.8%20120%2090%20120H10C1.2%20120%200%20118.8%200%20110V10C0%201.2%201.2%200%2010%200Z%27%2F%3E%3C%2Fsvg%3E") center / 100% 100% no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20100%20120%27%20preserveAspectRatio%3D%27none%27%3E%3Cpath%20d%3D%27M10%200H90C98.8%200%20100%201.2%20100%2010V110C100%20118.8%2098.8%20120%2090%20120H10C1.2%20120%200%20118.8%200%20110V10C0%201.2%201.2%200%2010%200Z%27%2F%3E%3C%2Fsvg%3E") center / 100% 100% no-repeat;
 }
 
 .hero h1 {
