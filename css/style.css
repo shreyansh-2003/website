@@ -1,7 +1,7 @@
 /* ==========================================================================
    Shreyansh Padarha: personal site
-   Plain CSS, no build step. Colours live in the variables below;
-   dark mode just swaps them.
+   Plain CSS, no build step. Colours live in the variables below; dark mode
+   swaps them (system setting, or the toggle in the top-right corner).
    ========================================================================== */
 
 :root {
@@ -36,11 +36,40 @@
   --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
     Arial, "Noto Sans", "Noto Sans Devanagari", "Kohinoor Devanagari", "Nirmala UI", sans-serif;
 
-  color-scheme: light dark;
+  color-scheme: light;
+}
+
+/* Dark palette. It applies when the visitor picks dark with the toggle
+   (data-theme="dark"), or when their system is dark and they haven't picked light.
+   Keep the two copies below identical. */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #111317;
+  --fg: #e5e7eb;
+  --muted: #a0a8b3;
+  --link-row: #c3c9d1;
+  --rule: #262b33;
+  --panel: #181b21;
+  --accent: #8ab4f8;
+  --accent-hover: #b4cffb;
+  --venue: #f09aa3;
+
+  --art-bg: #1a1c20;
+  --art-paper: #25282e;
+  --art-ink: #c3c8cf;
+  --art-faint: #4a4f58;
+  --slr-virus: #d37d61;
+  --slr-teal: #62ad98;
+  --rl-blue: #79a7d8;
+  --rl-amber-dark: #c99a3c;
+  --madqa-blue: #6fa6d4;
+  --pv-purple: #a093d4;
+  --pv-green: #79b87d;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
     --bg: #111317;
     --fg: #e5e7eb;
     --muted: #a0a8b3;
@@ -144,7 +173,9 @@ p {
 .site-nav {
   display: flex;
   justify-content: flex-end;
-  padding: 1.5rem 0 0.5rem;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.25rem 0 0.5rem;
 }
 
 .site-nav ul {
@@ -163,6 +194,52 @@ p {
 
 .site-nav ul a:hover {
   color: var(--fg);
+}
+
+/* Light/dark toggle: shows a moon in light mode and a sun in dark mode */
+.theme-toggle {
+  display: inline-grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  margin-right: -0.45rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+@media (hover: hover) {
+  .theme-toggle:hover {
+    color: var(--fg);
+    background: var(--panel);
+  }
+}
+
+.theme-toggle svg {
+  width: 1.05rem;
+  height: 1.05rem;
+}
+
+.theme-toggle .icon-sun,
+:root[data-theme="dark"] .theme-toggle .icon-moon {
+  display: none;
+}
+
+:root[data-theme="dark"] .theme-toggle .icon-sun {
+  display: block;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-toggle .icon-moon {
+    display: none;
+  }
+
+  :root:not([data-theme="light"]) .theme-toggle .icon-sun {
+    display: block;
+  }
 }
 
 /* ---------- Intro ---------- */
@@ -420,7 +497,8 @@ h3 {
 
 /* ---------- Paper illustrations ----------
    Inline SVGs (240 × 160), drawn by hand per paper. Each has a meaningful still
-   frame; the animations below play only while the paper's row is hovered. */
+   frame; the animations below play while the paper's row is hovered, or, on touch
+   screens, while it is on screen (js/site.js adds .is-playing). */
 
 .pub-art {
   margin: 0.2rem 0 0;
@@ -510,38 +588,38 @@ h3 {
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .pub:hover .slr-virus { animation: art-spin 9s linear infinite; }
-  .pub:hover .slr-doc { animation: slr-flow 2.8s cubic-bezier(0.45, 0, 0.75, 1) var(--d) infinite both; }
-  .pub:hover .slr-bar { animation: slr-bar 2.8s ease-out infinite; }
+  :is(.pub:hover, .pub.is-playing) .slr-virus { animation: art-spin 9s linear infinite; }
+  :is(.pub:hover, .pub.is-playing) .slr-doc { animation: slr-flow 2.8s cubic-bezier(0.45, 0, 0.75, 1) var(--d) infinite both; }
+  :is(.pub:hover, .pub.is-playing) .slr-bar { animation: slr-bar 2.8s ease-out infinite; }
 
-  .pub:hover .rl-mag { animation: rl-scan 3s ease-in-out infinite; }
-  .pub:hover .rl-step { animation: rl-step 3s ease-out var(--d) infinite both; }
-  .pub:hover .rl-sign { animation: rl-lean 3s ease-in-out infinite; }
+  :is(.pub:hover, .pub.is-playing) .rl-mag { animation: rl-scan 3s ease-in-out infinite; }
+  :is(.pub:hover, .pub.is-playing) .rl-step { animation: rl-step 3s ease-out var(--d) infinite both; }
+  :is(.pub:hover, .pub.is-playing) .rl-sign { animation: rl-lean 3s ease-in-out infinite; }
 
-  .pub:hover .madqa-orbit { opacity: 1; animation: art-spin 3s linear infinite; }
-  .pub:hover .madqa-glow { animation: madqa-glow 3s ease-out var(--d) infinite both; }
-  .pub:hover .madqa-hit { animation: madqa-hit 3s ease-out infinite; }
-  .pub:hover .madqa-bar { animation: madqa-bar 3s ease-out infinite; }
-  .pub:hover .madqa-answer { animation: madqa-answer 3s ease-out infinite; }
+  :is(.pub:hover, .pub.is-playing) .madqa-orbit { opacity: 1; animation: art-spin 3s linear infinite; }
+  :is(.pub:hover, .pub.is-playing) .madqa-glow { animation: madqa-glow 3s ease-out var(--d) infinite both; }
+  :is(.pub:hover, .pub.is-playing) .madqa-hit { animation: madqa-hit 3s ease-out infinite; }
+  :is(.pub:hover, .pub.is-playing) .madqa-bar { animation: madqa-bar 3s ease-out infinite; }
+  :is(.pub:hover, .pub.is-playing) .madqa-answer { animation: madqa-answer 3s ease-out infinite; }
 
-  .pub:hover .g-cursor { animation: g-cursor 3.6s ease-in-out infinite; }
-  .pub:hover .g-ripple { animation: g-ripple 3.6s ease-out infinite; }
-  .pub:hover .g-clip-b { animation: g-split 3.6s ease-in-out infinite; }
-  .pub:hover .g-playhead { animation: g-playhead 3.6s ease-in-out infinite; }
-  .pub:hover .g-check { animation: g-check 3.6s ease-out infinite; }
-  .pub:hover .g-progress { animation: g-progress 3.6s ease-in-out infinite; }
+  :is(.pub:hover, .pub.is-playing) .g-cursor { animation: g-cursor 3.6s ease-in-out infinite; }
+  :is(.pub:hover, .pub.is-playing) .g-ripple { animation: g-ripple 3.6s ease-out infinite; }
+  :is(.pub:hover, .pub.is-playing) .g-clip-b { animation: g-split 3.6s ease-in-out infinite; }
+  :is(.pub:hover, .pub.is-playing) .g-playhead { animation: g-playhead 3.6s ease-in-out infinite; }
+  :is(.pub:hover, .pub.is-playing) .g-check { animation: g-check 3.6s ease-out infinite; }
+  :is(.pub:hover, .pub.is-playing) .g-progress { animation: g-progress 3.6s ease-in-out infinite; }
 
-  .pub:hover .pv-beam { animation: pv-beam 3.6s ease-in-out infinite; }
-  .pub:hover .pv-left { animation: pv-left 3.6s ease-in-out infinite; }
-  .pub:hover .pv-right { animation: pv-right 3.6s ease-in-out infinite; }
-  .pub:hover .pv-glyph { animation: pv-glyph 3.6s linear var(--d) infinite; }
+  :is(.pub:hover, .pub.is-playing) .pv-beam { animation: pv-beam 3.6s ease-in-out infinite; }
+  :is(.pub:hover, .pub.is-playing) .pv-left { animation: pv-left 3.6s ease-in-out infinite; }
+  :is(.pub:hover, .pub.is-playing) .pv-right { animation: pv-right 3.6s ease-in-out infinite; }
+  :is(.pub:hover, .pub.is-playing) .pv-glyph { animation: pv-glyph 3.6s linear var(--d) infinite; }
 
-  .pub:hover .dx-scan { animation: dx-scan 4.2s ease-in-out infinite; }
-  .pub:hover .dx-box-l { animation: dx-draw-l 4.2s ease-out infinite; }
-  .pub:hover .dx-box-r { animation: dx-draw-r 4.2s ease-out infinite; }
-  .pub:hover .dx-axis,
-  .pub:hover .dx-arc { animation: dx-draw-a 4.2s ease-out infinite; }
-  .pub:hover .dx-line { animation: dx-fade 4.2s ease-out infinite; }
+  :is(.pub:hover, .pub.is-playing) .dx-scan { animation: dx-scan 4.2s ease-in-out infinite; }
+  :is(.pub:hover, .pub.is-playing) .dx-box-l { animation: dx-draw-l 4.2s ease-out infinite; }
+  :is(.pub:hover, .pub.is-playing) .dx-box-r { animation: dx-draw-r 4.2s ease-out infinite; }
+  :is(.pub:hover, .pub.is-playing) .dx-axis,
+  :is(.pub:hover, .pub.is-playing) .dx-arc { animation: dx-draw-a 4.2s ease-out infinite; }
+  :is(.pub:hover, .pub.is-playing) .dx-line { animation: dx-fade 4.2s ease-out infinite; }
 }
 
 @keyframes art-spin { to { transform: rotate(360deg); } }
