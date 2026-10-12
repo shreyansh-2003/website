@@ -15,6 +15,23 @@
   --accent-hover: #0f2f5c;
   --venue: #8c2f39;
 
+  /* paper illustrations: neutrals + one or two muted accents per paper */
+  --art-bg: #f6f6f3;
+  --art-paper: #ffffff;
+  --art-ink: #4a5059;
+  --art-faint: #c8ccd2;
+  --slr-virus: #c2694d;
+  --slr-teal: #4f9a86;
+  --slr-orange: #e0954f;
+  --rl-blue: #5b8fc7;
+  --rl-amber: #e3ac45;
+  --rl-amber-dark: #b8842a;
+  --rl-red: #cf5a45;
+  --madqa-blue: #4f8fc0;
+  --madqa-pink: #d77a9a;
+  --pv-purple: #8a7cc0;
+  --pv-green: #5fa064;
+
   --maxw: 52rem;
   --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
     Arial, "Noto Sans", "Noto Sans Devanagari", "Kohinoor Devanagari", "Nirmala UI", sans-serif;
@@ -33,6 +50,18 @@
     --accent: #8ab4f8;
     --accent-hover: #b4cffb;
     --venue: #f09aa3;
+
+    --art-bg: #1a1c20;
+    --art-paper: #25282e;
+    --art-ink: #c3c8cf;
+    --art-faint: #4a4f58;
+    --slr-virus: #d37d61;
+    --slr-teal: #62ad98;
+    --rl-blue: #79a7d8;
+    --rl-amber-dark: #c99a3c;
+    --madqa-blue: #6fa6d4;
+    --pv-purple: #a093d4;
+    --pv-green: #79b87d;
   }
 }
 
@@ -330,7 +359,7 @@ h3 {
   padding: 0;
 }
 
-/* Text on the left, the paper's figure on the right */
+/* Text on the left, the paper's illustration on the right */
 .pub {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 15rem;
@@ -389,36 +418,204 @@ h3 {
   font-weight: 650;
 }
 
-/* Whole figure at its natural shape: no cropping, no letterboxing. Tall figures are
-   capped in height (and so drawn narrower) to keep rows compact. */
-.pub-fig {
+/* ---------- Paper illustrations ----------
+   Inline SVGs (240 × 160), drawn by hand per paper. Each has a meaningful still
+   frame; the animations below play only while the paper's row is hovered. */
+
+.pub-art {
   margin: 0.2rem 0 0;
 }
 
-.pub-fig img {
+.pub-art svg {
   display: block;
-  width: auto;
+  width: 100%;
   height: auto;
-  max-width: 100%;
-  max-height: 12.5rem;
-  margin-left: auto;
   border: 1px solid var(--rule);
-  border-radius: 6px;
-  background: #fff;
+  border-radius: 8px;
+  background: var(--art-bg);
 }
+
+.art .slr-virus,
+.art .slr-doc,
+.art .rl-mag,
+.art .rl-step,
+.art .madqa-answer,
+.art .g-ripple,
+.art .g-clip-b,
+.art .g-playhead {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.art .slr-bar,
+.art .madqa-bar {
+  transform-box: fill-box;
+  transform-origin: bottom;
+}
+
+.art .g-progress {
+  transform-box: fill-box;
+  transform-origin: left;
+  transform: scaleX(0.35);
+}
+
+/* Still frames */
+.art .rl-sign {
+  transform-box: view-box;
+  transform-origin: 188px 138px;
+  transform: rotate(13deg);
+}
+
+.art .madqa-orbit {
+  transform-box: view-box;
+  transform-origin: 166px 80px;
+  opacity: 0;
+}
+
+.art .madqa-glow,
+.art .g-ripple,
+.art .dx-scan {
+  opacity: 0;
+}
+
+.art .g-check {
+  stroke-dasharray: 10;
+  stroke-dashoffset: 10;
+}
+
+/* Beam and pans move together: a pan hangs 62px from the pivot, so it rises or
+   falls by 62 × sin(angle). */
+.art .pv-beam {
+  transform-box: view-box;
+  transform-origin: 120px 46px;
+  transform: rotate(-6deg);
+}
+
+.art .pv-left {
+  transform: translateY(6.48px);
+}
+
+.art .pv-right {
+  transform: translateY(-6.48px);
+}
+
+.art .pv-glyph:not(:first-of-type) {
+  opacity: 0;
+}
+
+.art .dx-box,
+.art .dx-axis,
+.art .dx-arc {
+  stroke-dasharray: 100;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .pub:hover .slr-virus { animation: art-spin 9s linear infinite; }
+  .pub:hover .slr-doc { animation: slr-flow 2.8s cubic-bezier(0.45, 0, 0.75, 1) var(--d) infinite both; }
+  .pub:hover .slr-bar { animation: slr-bar 2.8s ease-out infinite; }
+
+  .pub:hover .rl-mag { animation: rl-scan 3s ease-in-out infinite; }
+  .pub:hover .rl-step { animation: rl-step 3s ease-out var(--d) infinite both; }
+  .pub:hover .rl-sign { animation: rl-lean 3s ease-in-out infinite; }
+
+  .pub:hover .madqa-orbit { opacity: 1; animation: art-spin 3s linear infinite; }
+  .pub:hover .madqa-glow { animation: madqa-glow 3s ease-out var(--d) infinite both; }
+  .pub:hover .madqa-hit { animation: madqa-hit 3s ease-out infinite; }
+  .pub:hover .madqa-bar { animation: madqa-bar 3s ease-out infinite; }
+  .pub:hover .madqa-answer { animation: madqa-answer 3s ease-out infinite; }
+
+  .pub:hover .g-cursor { animation: g-cursor 3.6s ease-in-out infinite; }
+  .pub:hover .g-ripple { animation: g-ripple 3.6s ease-out infinite; }
+  .pub:hover .g-clip-b { animation: g-split 3.6s ease-in-out infinite; }
+  .pub:hover .g-playhead { animation: g-playhead 3.6s ease-in-out infinite; }
+  .pub:hover .g-check { animation: g-check 3.6s ease-out infinite; }
+  .pub:hover .g-progress { animation: g-progress 3.6s ease-in-out infinite; }
+
+  .pub:hover .pv-beam { animation: pv-beam 3.6s ease-in-out infinite; }
+  .pub:hover .pv-left { animation: pv-left 3.6s ease-in-out infinite; }
+  .pub:hover .pv-right { animation: pv-right 3.6s ease-in-out infinite; }
+  .pub:hover .pv-glyph { animation: pv-glyph 3.6s linear var(--d) infinite; }
+
+  .pub:hover .dx-scan { animation: dx-scan 4.2s ease-in-out infinite; }
+  .pub:hover .dx-box-l { animation: dx-draw-l 4.2s ease-out infinite; }
+  .pub:hover .dx-box-r { animation: dx-draw-r 4.2s ease-out infinite; }
+  .pub:hover .dx-axis,
+  .pub:hover .dx-arc { animation: dx-draw-a 4.2s ease-out infinite; }
+  .pub:hover .dx-line { animation: dx-fade 4.2s ease-out infinite; }
+}
+
+@keyframes art-spin { to { transform: rotate(360deg); } }
+
+/* 1. Papers drift into the funnel; the review's chart fills in */
+@keyframes slr-flow {
+  0% { transform: translate(0, 0) scale(1); opacity: 0; }
+  12% { opacity: 1; }
+  68% { transform: translate(var(--dx), var(--dy)) scale(0.4); opacity: 1; }
+  82%, 100% { transform: translate(var(--dx), var(--dy)) scale(0.25); opacity: 0; }
+}
+@keyframes slr-bar { 0%, 50% { transform: scaleY(0.2); } 85%, 100% { transform: scaleY(1); } }
+
+/* 2. The search runs, harmful calls cascade, the sign leans further */
+@keyframes rl-scan { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(84px); } }
+@keyframes rl-step {
+  0% { opacity: 0; transform: translateY(-5px); }
+  14%, 80% { opacity: 1; transform: none; }
+  100% { opacity: 0; }
+}
+@keyframes rl-lean { 0%, 100% { transform: rotate(13deg); } 45% { transform: rotate(22deg); } 72% { transform: rotate(9deg); } }
+
+/* 3. One loop: decompose → retrieve (a page lights up) → analyse → answer */
+@keyframes madqa-glow { 0% { opacity: 1; } 30%, 100% { opacity: 0; } }
+@keyframes madqa-hit { 0%, 30% { opacity: 0.2; } 40%, 62% { opacity: 1; } 80%, 100% { opacity: 0.2; } }
+@keyframes madqa-bar { 0%, 64% { transform: scaleY(0.3); } 82%, 100% { transform: scaleY(1); } }
+@keyframes madqa-answer { 0%, 76% { opacity: 0.3; transform: scale(0.9); } 90%, 100% { opacity: 1; transform: none; } }
+
+/* 4. The cursor edits the clip, then ticks off the task */
+@keyframes g-cursor {
+  0%, 8% { transform: translate(0, 0); }
+  30%, 46% { transform: translate(-32px, 50px); }
+  70%, 84% { transform: translate(43px, 18px); }
+  100% { transform: translate(0, 0); }
+}
+@keyframes g-ripple {
+  0%, 31% { opacity: 0; transform: scale(0.3); }
+  35% { opacity: 0.9; }
+  46%, 71% { opacity: 0; transform: scale(1.4); }
+  72% { opacity: 0; transform: scale(0.3); }
+  75% { opacity: 0.9; }
+  86%, 100% { opacity: 0; transform: scale(1.4); }
+}
+@keyframes g-split { 0%, 36% { transform: translateX(0); } 46%, 92% { transform: translateX(5px); } 100% { transform: translateX(0); } }
+@keyframes g-playhead { 0%, 10% { transform: translateX(0); } 30%, 92% { transform: translateX(16px); } 100% { transform: translateX(0); } }
+@keyframes g-check { 0%, 74% { stroke-dashoffset: 10; } 84%, 96% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: 10; } }
+@keyframes g-progress { 0% { transform: scaleX(0.35); } 46% { transform: scaleX(0.6); } 84%, 96% { transform: scaleX(1); } 100% { transform: scaleX(0.35); } }
+
+/* 5. The judge's preference tips from image to text and back as the language changes */
+@keyframes pv-beam { 0%, 100% { transform: rotate(-6deg); } 30% { transform: rotate(7deg); } 62% { transform: rotate(-8deg); } }
+@keyframes pv-left { 0%, 100% { transform: translateY(6.48px); } 30% { transform: translateY(-7.56px); } 62% { transform: translateY(8.63px); } }
+@keyframes pv-right { 0%, 100% { transform: translateY(-6.48px); } 30% { transform: translateY(7.56px); } 62% { transform: translateY(-8.63px); } }
+@keyframes pv-glyph { 0%, 33.3% { opacity: 1; } 33.4%, 100% { opacity: 0; } }
+
+/* 6. Scan the X-ray, box both wisdom teeth, then measure the tilt */
+@keyframes dx-scan {
+  0% { transform: translateX(0); opacity: 0; }
+  5% { opacity: 1; }
+  30% { transform: translateX(246px); opacity: 1; }
+  31%, 100% { transform: translateX(246px); opacity: 0; }
+}
+@keyframes dx-draw-l { 0%, 28% { stroke-dashoffset: 100; } 45%, 100% { stroke-dashoffset: 0; } }
+@keyframes dx-draw-r { 0%, 38% { stroke-dashoffset: 100; } 55%, 100% { stroke-dashoffset: 0; } }
+@keyframes dx-draw-a { 0%, 55% { stroke-dashoffset: 100; } 72%, 100% { stroke-dashoffset: 0; } }
+@keyframes dx-fade { 0%, 52% { opacity: 0; } 62%, 100% { opacity: 1; } }
 
 @media (max-width: 560px) {
   .pub {
     grid-template-columns: 1fr;
   }
 
-  .pub-fig {
+  .pub-art {
+    max-width: 20rem;
     margin-top: 0.8rem;
-  }
-
-  .pub-fig img {
-    max-height: 14rem;
-    margin-left: 0;
   }
 }
 
