@@ -1,12 +1,14 @@
 # Shreyansh Padarha: personal website
 
 My academic homepage at [shreyanshpadarha.com](https://shreyanshpadarha.com): a short bio and research
-interests, selected publications (each with a figure from the paper), experience, and education, grants
+interests, selected publications (each with a small animated illustration), experience, and education, grants
 and teaching. It is a single static page hosted on GitHub Pages.
 
 ## Stack
 
-Plain HTML and CSS. No JavaScript, framework, build step or dependencies. Dark mode follows the
+Plain HTML and CSS. No JavaScript, framework, build step or dependencies. Each paper has a hand-drawn
+inline SVG (240 × 160) that animates on hover with CSS keyframes; animations are off for visitors who
+prefer reduced motion. Dark mode follows the
 visitor's system setting. The English/Hindi name swap on hover (header and footer) is CSS only: see `.swap`.
 
 ## Structure
@@ -16,9 +18,7 @@ index.html                  the whole site, in sections: intro, #research, #expe
 css/style.css               all styling; colours are CSS variables at the top (dark mode swaps them)
 assets/
   Shreyansh_Padarha_CV.pdf  CV linked from the header and the About section
-  img/                      profile photo and favicons
-  papers/                   one whole figure per paper, rendered from the PDF at 300 dpi (NAME.webp)
-favicon.svg
+  img/                      profile photo
 CNAME                       custom domain for GitHub Pages (shreyanshpadarha.com)
 .nojekyll                   tells GitHub Pages to serve files as-is (no Jekyll processing)
 ```
@@ -36,7 +36,7 @@ Opening `index.html` directly in a browser also works.
 | Task | How |
 | --- | --- |
 | Update the CV | Replace `assets/Shreyansh_Padarha_CV.pdf`, keeping the filename. |
-| Add a paper | Copy an `<li class="pub">` block inside `<ol class="pubs">` (newest first). Wrap my name in `<span class="me">` and the venue in `<span class="venue">`. Add one whole figure from the paper as `assets/papers/NAME.webp` (≤ 1100 px wide, not cropped) and set its `width`/`height` attributes. |
+| Add a paper | Copy an `<li class="pub">` block inside `<ol class="pubs">` (newest first). Wrap my name in `<span class="me">` and the venue in `<span class="venue">`. Draw an inline SVG for it inside `<figure class="pub-art">` (see the comment above the list in `index.html`), and add its hover animation under "Paper illustrations" in `css/style.css`. |
 | Add a position, award or teaching role | Copy an `<li>` in the matching `<ol class="timeline">`. |
 | Change the photo | Replace `assets/img/profile.jpg` (5:6 portrait, about 600 × 715). |
 | Change colours or fonts | Edit the variables at the top of `css/style.css`. |
