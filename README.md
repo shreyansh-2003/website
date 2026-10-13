@@ -27,6 +27,7 @@ assets/
   Shreyansh_Padarha_CV.pdf  CV linked from the header and the About section
   img/                      profile photo
 CNAME                       custom domain for GitHub Pages (shreyanshpadarha.com)
+robots.txt, sitemap.xml      let search engines find the site (update <lastmod> after big content changes)
 .nojekyll                   tells GitHub Pages to serve files as-is (no Jekyll processing)
 ```
 
